@@ -600,51 +600,70 @@ setInterval(updateViewer, 3000);
     <div class="container mx-auto px-6 text-center">
 
         <!-- 타이틀 -->
-        <h2 class="text-3xl md:text-5xl font-bold mb-12 text-[#c5a059]">
-            Master Choice
-        </h2>
+        <section class="bg-white py-16">
+    <div class="container mx-auto px-6 max-w-6xl">
 
-        <!-- 카드 -->
-        <div class="max-w-2xl mx-auto bg-white text-slate-900 rounded-3xl p-8 md:p-10 shadow-2xl relative">
+        <div class="grid md:grid-cols-2 gap-6 text-left mb-10 border-t border-slate-100 pt-10">
 
-            <!-- 선착순 -->
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-500 text-white px-5 py-1.5 rounded-full text-xs font-semibold shadow">
-                선착순 3명
+            <!-- 포함 사항 -->
+            <div class="bg-[#f9f7f2] p-6 rounded-2xl">
+                <h4 class="font-semibold text-lg mb-4 flex items-center gap-2">
+                    <span class="w-2 h-6 bg-[#1a3a3a]"></span>
+                    포함 사항
+                </h4>
+
+                <ul class="space-y-3 text-sm md:text-base text-slate-700 leading-relaxed">
+                    <li class="flex gap-2 items-start">
+                        <i class="fas fa-check text-[#c5a059] mt-1"></i>
+                        <span>1팀 밀착 레슨 (36H)</span>
+                    </li>
+                    <li class="flex gap-2 items-start">
+                        <i class="fas fa-check text-[#c5a059] mt-1"></i>
+                        <span>숙박비 2인 1실</span>
+                    </li>
+                    <li class="flex gap-2 items-start">
+                        <i class="fas fa-check text-[#c5a059] mt-1"></i>
+                        <span>전 일정 골프 비용 포함</span>
+                    </li>
+                    <li class="flex gap-2 items-start">
+                        <i class="fas fa-check text-[#c5a059] mt-1"></i>
+                        <span>송영비, 조식 / 석식</span>
+                    </li>
+                </ul>
             </div>
 
-            <!-- 가격 영역 -->
-            <div class="mb-6">
+            <!-- 불포함 사항 -->
+            <div class="bg-[#f9f7f2] p-6 rounded-2xl">
+                <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-slate-500">
+                    <span class="w-2 h-6 bg-slate-300"></span>
+                    불포함 사항
+                </h4>
 
-                <!-- 원가 -->
-                <p class="text-slate-400 text-sm line-through mb-2">
-                    KRW 2,300,000
-                </p>
-
-                <!-- 핵심 가격 -->
-                <div class="flex items-end justify-center gap-1">
-                    <span class="text-5xl md:text-6xl font-bold text-[#1a3a3a]">
-                        210
-                    </span>
-                    <span class="text-xl md:text-2xl mb-1">
-                        만원
-                    </span>
-                </div>
-
-                <!-- 혜택 -->
-<p class="text-green-600 text-sm mt-3">
-    카드 결제 무이자 할부 가능
-</p>
-
-<!-- 추가 (결제 신뢰 요소) -->
-<p class="text-slate-500 text-xs mt-2">
-    법인결제 및 증빙(세금계산서/현금영수증) 가능
-</p>
-
+                <ul class="space-y-3 text-sm md:text-base text-slate-600 leading-relaxed">
+                    <li class="flex items-start gap-2">
+                        <span class="text-red-500">❌</span>
+                        <span>중식 및 개인 경비</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-red-500">❌</span>
+                        <span>개별 항공비</span>
+                    </li>
+                </ul>
             </div>
 
         </div>
 
+        <p class="text-center text-sm text-slate-500 mb-6">
+            * 스승님 플랫폼 예약 시 적용되는 단독 특가입니다
+        </p>
+
+        <a href="#register"
+           class="block max-w-md mx-auto bg-[#c5a059] text-white rounded-xl text-lg font-semibold py-4 text-center hover:scale-[1.02] transition-all shadow-md">
+            지금 신청하고 자리 확보하기
+        </a>
+
     </div>
+</section>
 <section class="bg-white py-16">
     <div class="container mx-auto px-6 max-w-6xl">
 
