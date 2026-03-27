@@ -8,7 +8,7 @@
     <!-- 🔥 여기 추가 -->
     <meta property="og:type" content="website">
 <meta property="og:title" content="곽시랑스승 | 일본 사츠마 VIP 골프 캠프">
-<meta property="og:description" content="사츠마CC에서 배우는 실전 필드레슨, 단 3일 집중 캠프">
+<meta property="og:description" content="사츠마CC에서 VIP 레슨, 단 3일 집중 캠프">
 <meta property="og:image" content="https://rlaeodn1015-oss.github.io/camp/images/sr.jpg">
 <meta property="og:url" content="https://ssnim.com">
 
@@ -944,19 +944,23 @@ window.addEventListener('scroll', function() {
 });
 
 // 🌸 사쿠라 생성
-const sakuraContainer = document.getElementById("sakura-container");
+document.addEventListener("DOMContentLoaded", function () {
 
-for (let i = 0; i < 25; i++) {
-    const sakura = document.createElement("div");
-    sakura.classList.add("sakura");
-    sakura.innerHTML = "🌸";
+    const sakuraContainer = document.getElementById("sakura-container");
 
-    sakura.style.left = Math.random() * 100 + "vw";
-    sakura.style.animationDuration = (5 + Math.random() * 5) + "s";
-    sakura.style.fontSize = (12 + Math.random() * 10) + "px";
+    for (let i = 0; i < 25; i++) {
+        const sakura = document.createElement("div");
+        sakura.classList.add("sakura");
+        sakura.innerHTML = "🌸";
 
-    sakuraContainer.appendChild(sakura);
-}
+        sakura.style.left = Math.random() * 100 + "vw";
+        sakura.style.animationDuration = (5 + Math.random() * 5) + "s";
+        sakura.style.fontSize = (12 + Math.random() * 10) + "px";
+
+        sakuraContainer.appendChild(sakura);
+    }
+
+});
 
 // 🔥 공유 기능
 function sharePage() {
