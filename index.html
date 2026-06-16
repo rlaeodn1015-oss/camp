@@ -375,59 +375,96 @@
     </div>
 </section>
 
-  <section class="py-16 bg-white" id="pro-lineup">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <div class="text-center mb-10" data-aos="fade-up">
-                <span class="text-[#c5a059] font-bold text-xs tracking-widest uppercase block mb-1">PRO INSTRUCTORS</span>
-                
-                <!-- 방어 카피가 강화된 실시간 배지 -->
-                <div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-[#c5a059] px-3 py-1.5 rounded-full text-[11px] font-bold mb-4 shadow-sm tracking-wide text-left max-w-md md:max-w-xl">
-                    <span class="w-1.5 h-1.5 bg-[#c5a059] rounded-full animate-ping flex-shrink-0"></span>
-                    <span>💡 아래 프로진은 현재 참가 우선 협의 중인 예상 라인업입니다.<br> 최종 프로진은 참가자 확정 후 안내됩니다.</span>
-                </div>
-
-                <!-- 지시하신 제목 카피로 정정 -->
-                <h2 class="font-serif text-2xl md:text-4xl font-black text-[#1a3c5a] tracking-tight">1순위 섭외 프로진</h2>
-                <div class="w-12 h-0.5 bg-[#c5a059] mx-auto mt-3"></div>
-                <p class="text-xs text-slate-400 mt-3 max-w-md mx-auto">KLPGA 투어 출신 검증된 스승님들과 현지 스케줄을 조율 중입니다.<br> 참가자 라인업 확정 후 최종 배정 리포트를 안내해 드립니다.</p>
+<section class="py-16 bg-white" id="pro-lineup">
+    <div class="container mx-auto px-4 max-w-5xl">
+        
+        <!-- [상단] 확정 프로진 영역 -->
+        <div class="text-center mb-10" data-aos="fade-up">
+            <span class="text-[#c5a059] font-bold text-xs tracking-widest uppercase block mb-1">PRO INSTRUCTORS</span>
+            
+            <!-- 확정 완료 실시간 배지 -->
+            <div class="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-600 px-3 py-1.5 rounded-full text-[11px] font-bold mb-4 shadow-sm tracking-wide">
+                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping flex-shrink-0"></span>
+                <span>🔥 본 캠프 동행이 최종 확정된 스승님들입니다.</span>
             </div>
 
-            <!-- 프로 카드 내부 우측 상단에 absolute로 [예정] 태그 삽입 -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center" data-aos="fade-up">
-                <!-- 1. 조연희 프로 -->
-                <div class="bg-stone-50 border border-stone-200/60 p-4 rounded-2xl relative overflow-hidden">
-                    <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
-                    <div class="w-20 h-20 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-3xl"></i></div>
-                    <h4 class="font-black text-[#1a3c5a] text-sm md:text-base">조연희 프로</h4>
-                    <p class="text-[11px] text-[#c5a059] font-bold mt-0.5">KLPGA 정회원 / 투어경력</p>
+            <h2 class="font-serif text-2xl md:text-4xl font-black text-[#1a3c5a] tracking-tight">동행 확정 스승님</h2>
+            <div class="w-12 h-0.5 bg-[#c5a059] mx-auto mt-3"></div>
+            <p class="text-xs text-slate-400 mt-3 max-w-md mx-auto">밀착 필드 레슨과 전담 케어를 책임질<br>검증된 프로진의 합류가 완료되었습니다.</p>
+        </div>
+
+        <!-- 확정 프로 카드 리스트 (2열 배치, 실제 사진 적용) -->
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+            
+            <!-- 1. 홍태양 프로 (확정) -->
+            <div class="bg-stone-50 border border-[#c5a059]/40 p-5 rounded-2xl relative overflow-hidden shadow-sm">
+                <span class="absolute top-2.5 right-2.5 bg-[#c5a059] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[확정]</span>
+                
+                <!-- 📸 실제 프로필 사진 영역 -->
+                <div class="w-20 h-20 rounded-full mx-auto mb-3 overflow-hidden shadow-inner bg-stone-200">
+                    <!-- 여기에 실제 홍태양 프로님의 사진 경로를 넣어주세요 -->
+                    <img src="/path/to/your/photo-hong.jpg" alt="홍태양 프로 프로필 사진" class="w-full h-full object-cover object-center">
                 </div>
                 
-                <!-- 2. 곽시랑 프로 -->
-                <div class="bg-stone-50 border border-stone-200/60 p-4 rounded-2xl relative overflow-hidden">
-                    <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
-                    <div class="w-20 h-20 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-3xl"></i></div>
-                    <h4 class="font-black text-[#1a3c5a] text-sm md:text-base">곽시랑 프로</h4>
-                    <p class="text-[11px] text-[#c5a059] font-bold mt-0.5">KPGA 클래스 A / 미디어 프로</p>
+                <h4 class="font-black text-[#1a3c5a] text-sm md:text-base">홍태양 프로</h4>
+                <p class="text-[11px] text-[#c5a059] font-bold mt-0.5">KLPGA 정회원 / 점프투어 우승 & 상금왕</p>
+            </div>
+            
+            <!-- 2. 곽시랑 프로 (확정) -->
+            <div class="bg-stone-50 border border-[#c5a059]/40 p-5 rounded-2xl relative overflow-hidden shadow-sm">
+                <span class="absolute top-2.5 right-2.5 bg-[#c5a059] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[확정]</span>
+                
+                <!-- 📸 실제 프로필 사진 영역 -->
+                <div class="w-20 h-20 rounded-full mx-auto mb-3 overflow-hidden shadow-inner bg-stone-200">
+                    <!-- 여기에 실제 곽시랑 프로님의 사진 경로를 넣어주세요 -->
+                    <img src="/path/to/your/photo-kwak.jpg" alt="곽시랑 프로 프로필 사진" class="w-full h-full object-cover object-center">
                 </div>
                 
-                <!-- 5. 조이현 프로 -->
-                <div class="bg-stone-50 border border-stone-200/60 p-4 rounded-2xl relative overflow-hidden">
-                    <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
-                    <div class="w-20 h-20 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-3xl"></i></div>
-                    <h4 class="font-black text-[#1a3c5a] text-sm md:text-base">조이현 프로</h4>
-                    <p class="text-[11px] text-[#c5a059] font-bold mt-0.5">KLPGA 회원 / 쇼트게임 장인</p>
-                </div>
-                
-                <!-- 6. 공나연 프로 -->
-                <div class="bg-stone-50 border border-stone-200/60 p-4 rounded-2xl relative overflow-hidden">
-                    <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
-                    <div class="w-20 h-20 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-3xl"></i></div>
-                    <h4 class="font-black text-[#1a3c5a] text-sm md:text-base">공나연 프로</h4>
-                    <p class="text-[11px] text-[#c5a059] font-bold mt-0.5">KLPGA 회원 / 초밀착 전문 스튜디오</p>
-                </div>
+                <h4 class="font-black text-[#1a3c5a] text-sm md:text-base">곽시랑 프로</h4>
+                <p class="text-[11px] text-[#c5a059] font-bold mt-0.5">KPGA 클래스 A / 미디어 프로</p>
             </div>
         </div>
-    </section>
+
+
+        <!-- [하단] 추가 협의 프로진 영역 -->
+        <div class="text-center mb-8 pt-8 border-t border-slate-100" data-aos="fade-up">
+            <!-- 협의 중 안내 배지 -->
+            <div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-[#c5a059] px-3 py-1.5 rounded-full text-[11px] font-bold mb-3 shadow-sm tracking-wide">
+                <span>💡 아래 프로진은 현재 추가 섭외 및 현지 스케줄 조율 중인 라인업입니다.</span>
+            </div>
+            <h3 class="text-lg font-bold text-[#1a3c5a]">추가 조율 중인 프로진</h3>
+        </div>
+
+        <!-- 협의 중 프로 카드 리스트 (3열 배치 / 블러 처리 아이콘 유지) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center max-w-4xl mx-auto" data-aos="fade-up">
+            
+            <!-- 1. 조연희 프로 (협의 중) -->
+            <div class="bg-stone-50/60 border border-stone-200/40 p-4 rounded-2xl relative overflow-hidden opacity-75">
+                <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
+                <div class="w-16 h-16 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-2xl"></i></div>
+                <h4 class="font-bold text-slate-600 text-xs md:text-sm">조연희 프로</h4>
+                <p class="text-[10px] text-slate-400 font-medium mt-0.5">KLPGA 정회원 / 투어 경력</p>
+            </div>
+            
+            <!-- 2. 공나연 프로 (협의 중) -->
+            <div class="bg-stone-50/60 border border-stone-200/40 p-4 rounded-2xl relative overflow-hidden opacity-75">
+                <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
+                <div class="w-16 h-16 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-2xl"></i></div>
+                <h4 class="font-bold text-slate-600 text-xs md:text-sm">공나연 프로</h4>
+                <p class="text-[10px] text-slate-400 font-medium mt-0.5">KLPGA 회원 / 초밀착 레슨 전문</p>
+            </div>
+            
+            <!-- 3. 조이현 프로 (협의 중) -->
+            <div class="bg-stone-50/60 border border-stone-200/40 p-4 rounded-2xl relative overflow-hidden opacity-75">
+                <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
+                <div class="w-16 h-16 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-2xl"></i></div>
+                <h4 class="font-bold text-slate-600 text-xs md:text-sm">조이현 프로</h4>
+                <p class="text-[10px] text-slate-400 font-medium mt-0.5">KLPGA 회원 / 쇼트게임 장인</p>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <section class="py-16 bg-stone-100 border-y border-stone-200/60 text-center relative overflow-hidden">
         <div class="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#c5a059_1px,transparent_1px)] [background-size:16px_16px]"></div>
