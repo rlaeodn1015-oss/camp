@@ -2,7 +2,7 @@
 <html lang="ko" style="scroll-behavior: smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>스승님 | 오이타퍼시픽블루CC 프리미엄 골프여행</title>
 
     <meta property="og:type" content="website">
@@ -25,11 +25,22 @@
             --text-dark: #1f2229;
         }
 
+        /* 💡 [핵심 패치] 가로 스크롤 및 모바일 화면 밀림 현상을 전역에서 원천 차단 */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
         body {
             font-family: 'Noto Sans KR', sans-serif;
             background-color: #ffffff;
             color: var(--text-dark);
-            overflow-x: hidden;
             word-break: keep-all;
             line-height: 1.6;
         }
@@ -79,16 +90,13 @@
         }
     </style>
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SDDS8EP10J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SDDS8EP10J');
-</script>
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDDS8EP10J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SDDS8EP10J');
+    </script>
 </head>
 <body class="paper-texture safe-bottom">
 
@@ -97,15 +105,15 @@
             <div class="w-16 h-16 bg-[#f9f7f2] rounded-full flex items-center justify-center mx-auto mb-4 text-[#c5a059] text-2xl">
                 <i class="fas fa-golf-ball"></i>
             </div>
-            <h4 id="alertTitle" class="font-serif text-lg font-bold text-[#1a3c5a] mb-2">알림</h4>
+            <div id="alertTitle" class="font-serif text-lg font-bold text-[#1a3c5a] mb-2">알림</div>
             <p id="alertMessage" class="text-sm text-slate-600 mb-6 leading-relaxed"></p>
             <button onclick="closeAlert()" class="w-full bg-[#1a3c5a] text-[#c5a059] py-3 rounded-xl font-bold text-sm tracking-wide transition-all hover:bg-[#112b45]">확인</button>
         </div>
     </div>
 
-    <header class="fixed top-0 w-full z-[200] bg-white/95 backdrop-blur-md border-b border-gray-100 h-16 flex items-center transition-all duration-300" id="mainHeader">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <span class="text-xl font-black font-montserrat tracking-tighter text-[#1a3c5a]">SSNIM <span class="text-[#c5a059]">OITA</span></span>
+    <header class="fixed top-0 left-0 right-0 w-full z-[200] bg-white/95 backdrop-blur-md border-b border-gray-100 h-16 flex items-center transition-all duration-300" id="mainHeader">
+        <div class="w-full max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <span class="text-lg md:text-xl font-black font-montserrat tracking-tighter text-[#1a3c5a] shrink-0">SSNIM <span class="text-[#c5a059]">OITA</span></span>
             <div class="hidden md:flex space-x-8 text-[11px] font-bold text-[#1a3c5a] tracking-widest">
                 <a href="#why" class="hover:text-[#c5a059]">퍼시픽블루CC</a>
                 <a href="#hotel" class="hover:text-[#c5a059]">리조트안내</a>
@@ -114,9 +122,9 @@
                 <a href="#pricing" class="hover:text-[#c5a059]">참가금액</a>
                 <a href="#register" class="bg-[#1a3c5a] text-white px-6 py-2 rounded-full hover:bg-[#c5a059] transition-all">예약하기</a>
             </div>
-            <div class="flex items-center gap-2">
-                <a href="#register" class="md:hidden bg-[#1a3c5a] text-white text-xs px-3 py-1.5 rounded-full font-bold">빠른예약</a>
-                <button onclick="sharePage()" class="text-[#1a3c5a] text-lg p-2 rounded-full hover:bg-slate-50 transition-colors">
+            <div class="flex items-center gap-1.5 md:gap-2 shrink-0">
+                <a href="#register" class="md:hidden bg-[#1a3c5a] text-white text-[10px] sm:text-xs px-2.5 py-1.5 rounded-full font-bold whitespace-nowrap">빠른예약</a>
+                <button onclick="sharePage()" class="text-[#1a3c5a] text-base md:text-lg p-2 rounded-full hover:bg-slate-50 transition-colors shrink-0">
                     <i class="fas fa-share-alt"></i>
                 </button>
             </div>
@@ -135,7 +143,7 @@
         <div class="container mx-auto px-4 relative z-10 text-white text-center">
             <div data-aos="fade-up" data-aos-duration="1200" class="flex flex-col items-center">
                 <p class="font-montserrat font-bold tracking-[0.4em] text-xs text-[#c5a059] mb-4 uppercase">
-                    SEUSEUNGNIM GOLF LUXURY GOLF TRIP
+                    SEUSEUNGNIM LUXURY GOLF TRIP
                 </p>
 
                 <div class="inline-block border border-white/20 bg-white/10 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold mb-6 tracking-wide backdrop-blur-sm text-stone-200">
@@ -156,14 +164,14 @@
                     </div>
                 </div>
 
-               <div class="bg-black/40 border border-white/10 inline-block px-6 py-4 rounded-2xl mb-10 backdrop-blur-md w-full max-w-xl mx-auto">
-    <p class="text-lg md:text-2xl font-bold leading-relaxed text-[#fbfbf9] tracking-tight">
-        ⛳ 프로와 함께 떠나는 <span class="text-[#c5a059] font-black underline underline-offset-4 decoration-2">오이타 프리미엄 골프캠프</span>
-    </p>
-    <p class="text-xs md:text-sm text-stone-300 font-medium mt-1.5 tracking-wide">
-        (36홀 실시간 현장 피드백)
-    </p>
-</div>
+                <div class="bg-black/40 border border-white/10 inline-block px-6 py-4 rounded-2xl mb-10 backdrop-blur-md w-full max-w-xl mx-auto">
+                    <p class="text-lg md:text-2xl font-bold leading-relaxed text-[#fbfbf9] tracking-tight">
+                        ⛳ 프로와 함께 떠나는 <span class="text-[#c5a059] font-black underline underline-offset-4 decoration-2">오이타 프리미엄 골프캠프</span>
+                    </p>
+                    <p class="text-xs md:text-sm text-stone-300 font-medium mt-1.5 tracking-wide">
+                        (36홀 실시간 현장 피드백)
+                    </p>
+                </div>
 
                 <div class="w-full sm:w-auto px-4">
                     <a href="#register" class="w-full sm:w-auto inline-block bg-[#c5a059] text-white px-12 py-3.5 rounded-full text-base md:text-xl font-black shadow-[0_10px_30px_rgba(197,160,89,0.4)] hover:bg-[#b38f4b] hover:scale-105 transition-all duration-300 tracking-wider">
@@ -179,25 +187,24 @@
         </div>
     </section>
 
-   <div class="bg-[#1a3c5a] border-y border-[#112b45] text-white text-sm md:text-base font-bold py-4 text-center tracking-wide flex items-center justify-center gap-3 px-4">
-    <span class="inline-block w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse flex-shrink-0"></span>
-    <span class="leading-relaxed text-white">
-        현재 <span id="custom-realtime-count" class="text-[#c5a059] font-black text-lg md:text-xl px-1">5</span>명이 이 페이지를 조회 중입니다. <span class="text-red-400 font-extrabold block sm:inline sm:ml-2">(조기 마감 임박)</span>
-    </span>
-</div>
+    <div class="bg-[#1a3c5a] border-y border-[#112b45] text-white text-sm md:text-base font-bold py-4 text-center tracking-wide flex items-center justify-center gap-3 px-4">
+        <span class="inline-block w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse flex-shrink-0"></span>
+        <span class="leading-relaxed text-white">
+            현재 <span id="custom-realtime-count" class="text-[#c5a059] font-black text-lg md:text-xl px-1">5</span>명이 이 페이지를 조회 중입니다. <span class="text-red-400 font-extrabold block sm:inline sm:ml-2">(조기 마감 임박)</span>
+        </span>
+    </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const countEl = document.getElementById('custom-realtime-count');
-        if (countEl) {
-            setInterval(function() {
-                // 4~11 사이 랜덤 숫자 생성
-                const randomUsers = Math.floor(Math.random() * (11 - 4 + 1)) + 4;
-                countEl.innerText = randomUsers;
-            }, 3000);
-        }
-    });
-</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const countEl = document.getElementById('custom-realtime-count');
+            if (countEl) {
+                setInterval(function() {
+                    const randomUsers = Math.floor(Math.random() * (11 - 4 + 1)) + 4;
+                    countEl.innerText = randomUsers;
+                }, 3000);
+            }
+        });
+    </script>
 
     <section class="section-py bg-white" id="why">
         <div class="container mx-auto px-4 max-w-6xl">
@@ -243,7 +250,7 @@
 
                 <div class="bg-[#fcfbfa] p-6 rounded-2xl border border-slate-100 hover:border-[#c5a059]/40 transition-all shadow-sm" data-aos="fade-up" data-aos-delay="250">
                     <div class="text-[#c5a059] text-3xl mb-3"><i class="fas fa-golf-ball"></i></div>
-                    <h3 class="text-base font-bold mb-1 text-[#1a3c5a]">총 54홀 라운드</h3>
+                    <h3 class="text-base font-bold mb-1 text-[#1a3c5a]">개별 54홀 라운드</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">3박 4일 동안 필드 위에서 만끽하는 풍성한 코스 레이아웃.</p>
                 </div>
             </div>
@@ -273,17 +280,17 @@
                 <div class="w-12 h-0.5 bg-[#c5a059] mx-auto"></div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 mb-10 text-center max-w-4xl mx-auto">
-                <div class="bg-white py-3.5 px-2 rounded-xl shadow-sm border border-slate-100 font-bold text-slate-800 text-xs md:text-sm">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 mb-10 text-center max-w-4xl mx-auto px-2">
+                <div class="bg-white py-3.5 px-2 rounded-xl shadow-sm border border-slate-100 font-bold text-slate-800 text-[11px] sm:text-xs md:text-sm">
                     🏡 골프장 내 숙소 (Lodge)
                 </div>
-                <div class="bg-white py-3.5 px-2 rounded-xl shadow-sm border border-slate-100 font-bold text-slate-800 text-xs md:text-sm">
+                <div class="bg-white py-3.5 px-2 rounded-xl shadow-sm border border-slate-100 font-bold text-slate-800 text-[11px] sm:text-xs md:text-sm">
                     🚶 클럽하우스 도보 이동
                 </div>
-                <div class="bg-white py-3.5 px-2 rounded-xl shadow-sm border border-slate-100 font-bold text-slate-800 text-xs md:text-sm">
+                <div class="bg-white py-3.5 px-2 rounded-xl shadow-sm border border-slate-100 font-bold text-slate-800 text-[11px] sm:text-xs md:text-sm">
                     ♨️ 대욕장 온천 완비
                 </div>
-                <div class="bg-white py-3.5 px-2 rounded-xl shadow-sm border border-slate-100 font-bold text-slate-800 text-xs md:text-sm">
+                <div class="bg-white py-3.5 px-2 rounded-xl shadow-sm border border-slate-100 font-bold text-slate-800 text-[11px] sm:text-xs md:text-sm">
                     👥 복층 2인 1실 제공
                 </div>
             </div>
@@ -317,195 +324,158 @@
         </div>
     </section>
 
- <!-- 9~10월 오이타 골프 시즌 가치 제안 섹션 (Premium UX 리디자인) -->
-<section class="section-py bg-[#f8f9fa]" id="season-benefit">
-    <div class="container mx-auto px-4 max-w-5xl text-center">
-        
-        <!-- 섹션 헤더: 애플 스타일의 미니멀 타이포그래피 -->
-        <div class="mb-12 md:mb-16" data-aos="fade-up">
-            <span class="text-[#c5a059] font-black text-[10px] md:text-xs tracking-[0.25em] uppercase block mb-3">AUTUMN GOLDEN SEASON</span>
-            <h2 class="text-3xl md:text-[42px] font-black text-slate-950 tracking-tight leading-tight">
-                9~10월, 오이타 골프의 <br class="sm:hidden"> 가장 좋은 계절
-            </h2>
-            <p class="text-slate-400 text-xs md:text-sm mt-4 font-medium max-w-md mx-auto leading-relaxed">
-                가장 완벽한 필드 컨디션이 펼쳐지는 골든 시즌.<br>왜 지금 떠나야 하는지 숫자로 증명합니다.
-            </p>
-        </div>
+    <section class="section-py bg-[#f8f9fa]" id="season-benefit">
+        <div class="container mx-auto px-4 max-w-5xl text-center">
+            <div class="mb-12 md:mb-16" data-aos="fade-up">
+                <span class="text-[#c5a059] font-black text-[10px] md:text-xs tracking-[0.25em] uppercase block mb-3">AUTUMN GOLDEN SEASON</span>
+                <h2 class="text-3xl md:text-[42px] font-black text-slate-950 tracking-tight leading-tight">
+                    9~10월, 오이타 골프의 <br class="sm:hidden"> 가장 좋은 계절
+                </h2>
+                <p class="text-slate-400 text-xs md:text-sm mt-4 font-medium max-w-md mx-auto leading-relaxed">
+                    가장 완벽한 필드 컨디션이 펼쳐지는 골든 시즌.<br>왜 지금 떠나야 하는지 숫자로 증명합니다.
+                </p>
+            </div>
 
-        <!-- 카드 그리드: Soft & Round 입체 레이아웃 -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-            
-            <!-- 카드 1: 쾌적한 라운드 날씨 -->
-            <div class="bg-white p-6 md:p-8 rounded-[32px] shadow-[0_15px_35px_-12px_rgba(0,0,0,0,05)] border border-slate-100/80 flex flex-col justify-between transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_25px_45px_-12px_rgba(26,60,90,0.08)] transition-all duration-500 ease-out" data-aos="fade-up" data-aos-delay="100">
-                <div>
-                    <!-- 클레이모피즘 스타일 아이콘 박스 -->
-                    <div class="w-11 h-11 bg-gradient-to-br from-amber-50 to-orange-100/50 rounded-2xl flex items-center justify-center text-lg mb-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_12px_rgba(251,191,36,0.15)]">☀️</div>
-                    <h3 class="text-lg font-black text-slate-950 tracking-tight mb-4">쾌적한 라운드 날씨</h3>
-                    
-                    <!-- 정량적 데이터 가독성 극대화 파트 -->
-                    <div class="space-y-2 mb-6">
-                        <div class="flex justify-between items-center bg-slate-50/70 px-3.5 py-2 rounded-xl border border-slate-100">
-                            <span class="text-xs text-slate-500 font-bold">9월 평균 기온</span>
-                            <span class="text-base font-black text-[#1a3c5a] tracking-tight">26°C</span>
-                        </div>
-                        <div class="flex justify-between items-center bg-slate-50/70 px-3.5 py-2 rounded-xl border border-slate-100">
-                            <span class="text-xs text-slate-500 font-bold">10월 평균 기온</span>
-                            <span class="text-base font-black text-[#1a3c5a] tracking-tight">22°C</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                <div class="bg-white p-6 md:p-8 rounded-[32px] shadow-[0_15px_35px_-12px_rgba(0,0,0,0.05)] border border-slate-100/80 flex flex-col justify-between transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_25px_45px_-12px_rgba(26,60,90,0.08)] transition-all duration-500 ease-out" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-11 h-11 bg-gradient-to-br from-amber-50 to-orange-100/50 rounded-2xl flex items-center justify-center text-lg mb-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_12px_rgba(251,191,36,0.15)]">☀️</div>
+                        <h3 class="text-lg font-black text-slate-950 tracking-tight mb-4">쾌적한 라운드 날씨</h3>
+                        <div class="space-y-2 mb-6">
+                            <div class="flex justify-between items-center bg-slate-50/70 px-3.5 py-2 rounded-xl border border-slate-100">
+                                <span class="text-xs text-slate-500 font-bold">9월 평균 기온</span>
+                                <span class="text-base font-black text-[#1a3c5a] tracking-tight">26°C</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-slate-50/70 px-3.5 py-2 rounded-xl border border-slate-100">
+                                <span class="text-xs text-slate-500 font-bold">10월 평균 기온</span>
+                                <span class="text-base font-black text-[#1a3c5a] tracking-tight">22°C</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <p class="text-slate-500 text-xs md:text-[13px] leading-relaxed font-medium tracking-tight">
-                    한여름의 숨 막히는 무더위 없이, 온전히 골프에 집중할 수 있는 기분 좋은 바람이 붑니다.
-                </p>
-            </div>
-
-            <!-- 카드 2: 바다 바람이 만드는 시원함 -->
-            <div class="bg-white p-6 md:p-8 rounded-[32px] shadow-[0_15px_35px_-12px_rgba(0,0,0,0,05)] border border-slate-100/80 flex flex-col justify-between transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_25px_45px_-12px_rgba(26,60,90,0.08)] transition-all duration-500 ease-out" data-aos="fade-up" data-aos-delay="200">
-                <div>
-                    <div class="w-11 h-11 bg-gradient-to-br from-blue-50 to-cyan-100/50 rounded-2xl flex items-center justify-center text-lg mb-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_12px_rgba(34,211,238,0.15)]">🌊</div>
-                    <h3 class="text-lg font-black text-slate-950 tracking-tight mb-3">바다 바람의 시원함</h3>
-                    <p class="text-slate-800 font-bold text-[13px] md:text-sm leading-snug mb-5 tracking-tight">
-                        태평양 오션뷰 코스 위로 <br class="hidden md:inline">불어오는 시원한 천연 해풍
+                    <p class="text-slate-500 text-xs md:text-[13px] leading-relaxed font-medium tracking-tight">
+                        한여름의 숨 막히는 무더위 없이, 온전히 골프에 집중할 수 있는 기분 좋은 바람이 붑니다.
                     </p>
                 </div>
-                <p class="text-slate-500 text-xs md:text-[13px] leading-relaxed font-medium tracking-tight">
-                    한국의 고온다습한 여름과는 공기부터 다릅니다.<br> 땀 흘리지 않는 쾌적함을 선사합니다.
-                </p>
-            </div>
 
-            <!-- 카드 3: 가을 골프 성수기 -->
-            <div class="bg-white p-6 md:p-8 rounded-[32px] shadow-[0_15px_35px_-12px_rgba(0,0,0,0,05)] border border-slate-100/80 flex flex-col justify-between transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_25px_45px_-12px_rgba(26,60,90,0.08)] transition-all duration-500 ease-out" data-aos="fade-up" data-aos-delay="300">
-                <div>
-                    <div class="w-11 h-11 bg-gradient-to-br from-orange-50 to-red-100/50 rounded-2xl flex items-center justify-center text-lg mb-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_12px_rgba(248,113,113,0.15)]">🍁</div>
-                    <h3 class="text-lg font-black text-slate-950 tracking-tight mb-3">가을 골프 성수기</h3>
-                    <p class="text-slate-800 font-bold text-[13px] md:text-sm leading-snug mb-5 tracking-tight">
-                        부킹 전쟁 없는 <br class="hidden md:inline">일본 명문 코스의 최성수기
-                    </p>
-                </div>
-                <p class="text-slate-500 text-xs md:text-[13px] leading-relaxed font-medium tracking-tight">
-                    가장 선명하고 높은 가을 하늘 아래에서 라운드를 즐길 수 있어, 한국 회원들이 첫 번째로 선점하는 시기입니다.
-                </p>
-            </div>
-
-            <!-- 카드 4: 복장도 가볍게 -->
-            <div class="bg-white p-6 md:p-8 rounded-[32px] shadow-[0_15px_35px_-12px_rgba(0,0,0,0,05)] border border-slate-100/80 flex flex-col justify-between transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_25px_45px_-12px_rgba(26,60,90,0.08)] transition-all duration-500 ease-out" data-aos="fade-up" data-aos-delay="400">
-                <div>
-                    <div class="w-11 h-11 bg-gradient-to-br from-emerald-50 to-green-100/50 rounded-2xl flex items-center justify-center text-lg mb-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_12px_rgba(52,211,153,0.15)]">👕</div>
-                    <h3 class="text-lg font-black text-slate-950 tracking-tight mb-4">복장도 가볍게</h3>
-                    
-                    <div class="space-y-1.5 mb-5 text-xs font-semibold">
-                        <p class="text-slate-600 flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-emerald-500"></span><strong class="text-slate-950 font-bold">9월:</strong> 경쾌한 반팔 라운드 가능</p>
-                        <p class="text-slate-600 flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-emerald-500"></span><strong class="text-slate-950 font-bold">10월:</strong> 아침·저녁 가벼운 바람막이</p>
+                <div class="bg-white p-6 md:p-8 rounded-[32px] shadow-[0_15px_35px_-12px_rgba(0,0,0,0.05)] border border-slate-100/80 flex flex-col justify-between transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_25px_45px_-12px_rgba(26,60,90,0.08)] transition-all duration-500 ease-out" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-11 h-11 bg-gradient-to-br from-blue-50 to-cyan-100/50 rounded-2xl flex items-center justify-center text-lg mb-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_12px_rgba(34,211,238,0.15)]">🌊</div>
+                        <h3 class="text-lg font-black text-slate-950 tracking-tight mb-3">바다 바람의 시원함</h3>
+                        <p class="text-slate-400 font-bold text-[13px] md:text-sm leading-snug mb-5 tracking-tight">
+                            태평양 오션뷰 코스 위로 부러오는 시원한 천연 해풍
+                        </p>
                     </div>
+                    <p class="text-slate-500 text-xs md:text-[13px] leading-relaxed font-medium tracking-tight">
+                        한국의 고온다습한 여름과는 공기부터 다릅니다. 땀 흘리지 않는 쾌적함을 선사합니다.
+                    </p>
                 </div>
-                <p class="text-slate-500 text-xs md:text-[13px] leading-relaxed font-medium tracking-tight">
-                    두껍고 무거운 겨울 옷 대신 몸이 가벼운 차림으로 제약 없이 경쾌한 스윙을 날려보세요.
+
+                <div class="bg-white p-6 md:p-8 rounded-[32px] shadow-[0_15px_35px_-12px_rgba(0,0,0,0.05)] border border-slate-100/80 flex flex-col justify-between transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_25px_45px_-12px_rgba(26,60,90,0.08)] transition-all duration-500 ease-out" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="w-11 h-11 bg-gradient-to-br from-orange-500 to-red-100/50 rounded-2xl flex items-center justify-center text-lg mb-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_12px_rgba(248,113,113,0.15)]">🍁</div>
+                        <h3 class="text-lg font-black text-slate-950 tracking-tight mb-3">가을 골프 성수기</h3>
+                        <p class="text-slate-400 font-bold text-[13px] md:text-sm leading-snug mb-5 tracking-tight">
+                            부킹 전쟁 없는 일본 명문 코스의 최성수기
+                        </p>
+                    </div>
+                    <p class="text-slate-500 text-xs md:text-[13px] leading-relaxed font-medium tracking-tight">
+                        가장 선명하고 높은 가을 하늘 아래에서 라운드를 즐길 수 있어, 한국 회원들이 첫 번째로 선점하는 시기입니다.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 md:p-8 rounded-[32px] shadow-[0_15px_35px_-12px_rgba(0,0,0,0.05)] border border-slate-100/80 flex flex-col justify-between transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_25px_45px_-12px_rgba(26,60,90,0.08)] transition-all duration-500 ease-out" data-aos="fade-up" data-aos-delay="400">
+                    <div>
+                        <div class="w-11 h-11 bg-gradient-to-br from-emerald-50 to-green-100/50 rounded-2xl flex items-center justify-center text-lg mb-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),0_4px_12px_rgba(52,211,153,0.15)]">👕</div>
+                        <h3 class="text-lg font-black text-slate-950 tracking-tight mb-4">복장도 가볍게</h3>
+                        <div class="space-y-1.5 mb-5 text-xs font-semibold">
+                            <p class="text-slate-600 flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-emerald-500"></span><strong class="text-slate-950 font-bold">9월:</strong> 경쾌한 반팔 라운드 가능</p>
+                            <p class="text-slate-600 flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-emerald-500"></span><strong class="text-slate-950 font-bold">10월:</strong> 가벼운 바람막이 소지 권장</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-500 text-xs md:text-[13px] leading-relaxed font-medium tracking-tight">
+                        두껍고 무거운 겨울 옷 대신 몸이 가벼운 차림으로 제약 없이 경쾌한 스윙을 날려보세요.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white" id="pro-lineup">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-10" data-aos="fade-up">
+                <span class="text-[#c5a059] font-bold text-xs tracking-widest uppercase block mb-1">PRO INSTRUCTORS</span>
+                <div class="inline-flex items-center gap-1.5 bg-stone-50 border border-slate-200 text-stone-600 px-3 py-1.5 rounded-full text-[11px] font-bold mb-4 shadow-sm tracking-wide">
+                    <span class="w-1.5 h-1.5 bg-[#c5a059] rounded-full animate-ping flex-shrink-0"></span>
+                    <span>⛳️ 본 캠프에 동행 예정인 검증된 스승님 라인업입니다.</span>
+                </div>
+                <h2 class="font-serif text-2xl md:text-4xl font-black text-[#1a3c5a] tracking-tight">동행 스승님 라인업</h2>
+                <div class="w-12 h-0.5 bg-[#c5a059] mx-auto mt-3"></div>
+                <p class="text-xs text-slate-400 mt-3 max-w-md mx-auto">밀착 필드 레슨과 전담 케어를 책임질<br>프리미엄 스승님의 배정이 예정되어 있습니다.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-2xl mx-auto text-center mb-12 px-2" data-aos="fade-up">
+                <div onclick="openProModal('hty')" class="bg-stone-50 border border-slate-200 p-5 rounded-2xl relative overflow-hidden shadow-sm hover:shadow-md hover:border-[#c5a059]/60 transition-all duration-300 cursor-pointer group">
+                    <span class="absolute top-2.5 right-2.5 bg-slate-400 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[동행 예정]</span>
+                    <div class="w-20 h-20 rounded-full mx-auto mb-3 overflow-hidden shadow-inner bg-stone-200 group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://rlaeodn1015-oss.github.io/camp/images/hty.jpg" alt="홍태양 스승 사진" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h4 class="font-black text-[#1a3c5a] text-sm md:text-base">홍태양 스승</h4>
+                    <p class="text-[11px] text-[#c5a059] font-bold mt-0.5 mb-3">KLPGA 정회원 / 점프투어 우승</p>
+                    <button type="button" class="inline-flex items-center gap-1 bg-white border border-slate-200 text-slate-600 text-[10px] font-bold px-3 py-1.5 rounded-xl shadow-[0_2px_6px_rgba(0,0,0,0.03)] group-hover:bg-[#1a3c5a] group-hover:text-[#c5a059] group-hover:border-[#1a3c5a] transition-all">
+                        경력 자세히 보기 <i class="fas fa-chevron-right text-[8px]"></i>
+                    </button>
+                </div>
+                
+                <div onclick="openProModal('ksr')" class="bg-stone-50 border border-slate-200 p-5 rounded-2xl relative overflow-hidden shadow-sm hover:shadow-md hover:border-[#c5a059]/60 transition-all duration-300 cursor-pointer group">
+                    <span class="absolute top-2.5 right-2.5 bg-slate-400 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[동행 예정]</span>
+                    <div class="w-20 h-20 rounded-full mx-auto mb-3 overflow-hidden shadow-inner bg-stone-200 group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://rlaeodn1015-oss.github.io/camp/images/ksr2.jpg" alt="곽시랑 스승 프로필 사진" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h4 class="font-black text-[#1a3c5a] text-sm md:text-base">곽시랑 스승</h4>
+                    <p class="text-[11px] text-[#c5a059] font-bold mt-0.5 mb-3">KLPGA 회원 / 강남권 레슨 명인</p>
+                    <button type="button" class="inline-flex items-center gap-1 bg-white border border-slate-200 text-slate-600 text-[10px] font-bold px-3 py-1.5 rounded-xl shadow-[0_2px_6px_rgba(0,0,0,0.03)] group-hover:bg-[#1a3c5a] group-hover:text-[#c5a059] group-hover:border-[#1a3c5a] transition-all">
+                        경력 자세히 보기 <i class="fas fa-chevron-right text-[8px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center mb-8 pt-8 border-t border-slate-100" data-aos="fade-up">
+                <div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-[#c5a059] px-3 py-1.5 rounded-full text-[11px] font-bold mb-3 shadow-sm tracking-wide">
+                    <span>💡 아래 스승님은 현재 추가 섭외 및 현지 스케줄 조율 중인 라인업입니다.</span>
+                </div>
+                <h3 class="text-lg font-bold text-[#1a3c5a]">추가 조율 중인 스승님</h3>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center max-w-4xl mx-auto mb-12 px-2" data-aos="fade-up">
+                <div class="bg-stone-50/60 border border-stone-200/40 p-4 rounded-2xl relative overflow-hidden opacity-75">
+                    <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
+                    <div class="w-16 h-16 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-2xl"></i></div>
+                    <h4 class="font-bold text-slate-600 text-xs md:text-sm">조연희 프로</h4>
+                    <p class="text-[10px] text-slate-400 font-medium mt-0.5">KLPGA 정회원 / 투어 경력</p>
+                </div>
+                
+                <div class="bg-stone-50/60 border border-stone-200/40 p-4 rounded-2xl relative overflow-hidden opacity-75">
+                    <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
+                    <div class="w-16 h-16 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-2xl"></i></div>
+                    <h4 class="font-bold text-slate-600 text-xs md:text-sm">공나연 프로</h4>
+                    <p class="text-[10px] text-slate-400 font-medium mt-0.5">KLPGA 회원 / 초밀착 레슨 전문</p>
+                </div>
+                
+                <div class="bg-stone-50/60 border border-stone-200/40 p-4 rounded-2xl relative overflow-hidden opacity-75">
+                    <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
+                    <div class="w-16 h-16 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-2xl"></i></div>
+                    <h4 class="font-bold text-slate-600 text-xs md:text-sm">조이현 프로</h4>
+                    <p class="text-[10px] text-slate-400 font-medium mt-0.5">KLPGA 회원 / 쇼트게임 장인</p>
+                </div>
+            </div>
+
+            <div class="text-center max-w-3xl mx-auto pt-4 border-t border-slate-100 px-2">
+                <p class="text-[10px] text-slate-400 leading-relaxed font-medium">
+                    ※ 상기 프로진 라인업은 출발 기준 동행 예정 리스트이며, 계약 약관 제5조에 의거하여 프로 개인의 부상, 질병, 항공 지연, 천재지변 및 개인 사정 등 불가피한 사유 발생 시 동등 수준 이상의 프로로 변경될 수 있습니다. 참가자는 특정 프로와의 동행을 보장받지 않으며, 프로 배정 변경 사항은 계약 해지 또는 환불 사유에 해당하지 않습니다.
                 </p>
             </div>
-
         </div>
-    </div>
-</section>
-
-<section class="py-16 bg-white" id="pro-lineup">
-    <div class="container mx-auto px-4 max-w-5xl">
-        
-        <!-- [상단] 동행 예정 프로진 영역 -->
-        <div class="text-center mb-10" data-aos="fade-up">
-            <span class="text-[#c5a059] font-bold text-xs tracking-widest uppercase block mb-1">PRO INSTRUCTORS</span>
-            
-            <!-- ⛳️ [변경] 확정 배지 -> 동행 예정 안내 배지로 톤다운 -->
-            <div class="inline-flex items-center gap-1.5 bg-stone-50 border border-slate-200 text-stone-600 px-3 py-1.5 rounded-full text-[11px] font-bold mb-4 shadow-sm tracking-wide">
-                <span class="w-1.5 h-1.5 bg-[#c5a059] rounded-full animate-ping flex-shrink-0"></span>
-                <span>⛳️ 본 캠프에 동행 예정인 검증된 스승님 라인업입니다.</span>
-            </div>
-
-            <!-- [변경] 동행 확정 -> 동행 스승님 라인업 -->
-            <h2 class="font-serif text-2xl md:text-4xl font-black text-[#1a3c5a] tracking-tight">동행 스승님 라인업</h2>
-            <div class="w-12 h-0.5 bg-[#c5a059] mx-auto mt-3"></div>
-            <p class="text-xs text-slate-400 mt-3 max-w-md mx-auto">밀착 필드 레슨과 전담 케어를 책임질<br>프리미엄 스승님의 배정이 예정되어 있습니다.</p>
-        </div>
-
-        <!-- 프로 카드 리스트 (2열 배치, [확정] -> [동행 예정] 전면 교체) -->
-       <div class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-2xl mx-auto text-center mb-12" data-aos="fade-up">
-    
-    <div onclick="openProModal('hty')" class="bg-stone-50 border border-slate-200 p-5 rounded-2xl relative overflow-hidden shadow-sm hover:shadow-md hover:border-[#c5a059]/60 transition-all duration-300 cursor-pointer group">
-        <span class="absolute top-2.5 right-2.5 bg-slate-400 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[동행 예정]</span>
-        
-        <div class="w-20 h-20 rounded-full mx-auto mb-3 overflow-hidden shadow-inner bg-stone-200 group-hover:scale-105 transition-transform duration-300">
-            <img src="https://rlaeodn1015-oss.github.io/camp/images/hty.jpg" alt="홍태양 스승 사진" class="w-full h-full object-cover object-center">
-        </div>
-        
-        <h4 class="font-black text-[#1a3c5a] text-sm md:text-base">홍태양 스승</h4>
-        <p class="text-[11px] text-[#c5a059] font-bold mt-0.5 mb-3">KLPGA 정회원 / 점프투어 우승</p>
-        
-        <button type="button" class="inline-flex items-center gap-1 bg-white border border-slate-200 text-slate-600 text-[10px] font-bold px-3 py-1.5 rounded-xl shadow-[0_2px_6px_rgba(0,0,0,0.03)] group-hover:bg-[#1a3c5a] group-hover:text-[#c5a059] group-hover:border-[#1a3c5a] transition-all">
-            경력 자세히 보기 <i class="fas fa-chevron-right text-[8px]"></i>
-        </button>
-    </div>
-    
-    <div onclick="openProModal('ksr')" class="bg-stone-50 border border-slate-200 p-5 rounded-2xl relative overflow-hidden shadow-sm hover:shadow-md hover:border-[#c5a059]/60 transition-all duration-300 cursor-pointer group">
-        <span class="absolute top-2.5 right-2.5 bg-slate-400 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[동행 예정]</span>
-        
-        <div class="w-20 h-20 rounded-full mx-auto mb-3 overflow-hidden shadow-inner bg-stone-200 group-hover:scale-105 transition-transform duration-300">
-            <img src="https://rlaeodn1015-oss.github.io/camp/images/ksr2.jpg" alt="곽시랑 스승 프로필 사진" class="w-full h-full object-cover object-center">
-        </div>
-        
-        <h4 class="font-black text-[#1a3c5a] text-sm md:text-base">곽시랑 스승</h4>
-        <p class="text-[11px] text-[#c5a059] font-bold mt-0.5 mb-3">KLPGA 준회원 / 강남권 레슨 명인</p>
-        
-        <button type="button" class="inline-flex items-center gap-1 bg-white border border-slate-200 text-slate-600 text-[10px] font-bold px-3 py-1.5 rounded-xl shadow-[0_2px_6px_rgba(0,0,0,0.03)] group-hover:bg-[#1a3c5a] group-hover:text-[#c5a059] group-hover:border-[#1a3c5a] transition-all">
-            경력 자세히 보기 <i class="fas fa-chevron-right text-[8px]"></i>
-        </button>
-    </div>
-</div>
-
-
-        <!-- [하단] 추가 협의 프로진 영역 -->
-        <div class="text-center mb-8 pt-8 border-t border-slate-100" data-aos="fade-up">
-            <div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-[#c5a059] px-3 py-1.5 rounded-full text-[11px] font-bold mb-3 shadow-sm tracking-wide">
-                <span>💡 아래 스승님은 현재 추가 섭외 및 현지 스케줄 조율 중인 라인업입니다.</span>
-            </div>
-            <h3 class="text-lg font-bold text-[#1a3c5a]">추가 조율 중인 스승님</h3>
-        </div>
-
-        <!-- 협의 중 프로 카드 리스트 (3열 배치 / 블러 처리 아이콘 유지) -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center max-w-4xl mx-auto mb-12" data-aos="fade-up">
-            
-            <!-- 1. 조연희 프로 (협의 중) -->
-            <div class="bg-stone-50/60 border border-stone-200/40 p-4 rounded-2xl relative overflow-hidden opacity-75">
-                <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
-                <div class="w-16 h-16 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-2xl"></i></div>
-                <h4 class="font-bold text-slate-600 text-xs md:text-sm">조연희 프로</h4>
-                <p class="text-[10px] text-slate-400 font-medium mt-0.5">KLPGA 정회원 / 투어 경력</p>
-            </div>
-            
-            <!-- 2. 공나연 프로 (협의 중) -->
-            <div class="bg-stone-50/60 border border-stone-200/40 p-4 rounded-2xl relative overflow-hidden opacity-75">
-                <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
-                <div class="w-16 h-16 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-2xl"></i></div>
-                <h4 class="font-bold text-slate-600 text-xs md:text-sm">공나연 프로</h4>
-                <p class="text-[10px] text-slate-400 font-medium mt-0.5">KLPGA 회원 / 초밀착 레슨 전문</p>
-            </div>
-            
-            <!-- 3. 조이현 프로 (협의 중) -->
-            <div class="bg-stone-50/60 border border-stone-200/40 p-4 rounded-2xl relative overflow-hidden opacity-75">
-                <span class="absolute top-2.5 right-2.5 bg-stone-200 text-stone-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wide">[예정]</span>
-                <div class="w-16 h-16 bg-stone-200 rounded-full mx-auto mb-3 blur-[4px] opacity-70 flex items-center justify-center text-stone-400"><i class="fas fa-user text-2xl"></i></div>
-                <h4 class="font-bold text-slate-600 text-xs md:text-sm">조이현 프로</h4>
-                <p class="text-[10px] text-slate-400 font-medium mt-0.5">KLPGA 회원 / 쇼트게임 장인</p>
-            </div>
-        </div>
-
-        <!-- 🛡️ [신규 추가] 약관 연동형 최하단 면책 자구 고지 -->
-        <div class="text-center max-w-3xl mx-auto pt-4 border-t border-slate-100">
-            <p class="text-[10px] text-slate-400 leading-relaxed font-medium">
-                ※ 상기 프로진 라인업은 출발 기준 동행 예정 리스트이며, 계약 약관 제5조에 의거하여 프로 개인의 부상, 질병, 항공 지연, 천재지변 및 개인 사정 등 불가피한 사유 발생 시 동등 수준 이상의 프로로 변경될 수 있습니다. 참가자는 특정 프로와의 동행을 보장받지 않으며, 프로 배정 변경 사항은 계약 해지 또는 환불 사유에 해당하지 않습니다.
-            </p>
-        </div>
-
-    </div>
-</section>
+    </section>
 
     <section class="py-16 bg-white" id="timeline">
         <div class="container mx-auto px-4 max-w-4xl">
@@ -516,25 +486,26 @@
                 <div class="w-12 h-0.5 bg-[#c5a059] mx-auto mt-4"></div>
             </div>
 
-           <div class="bg-[#fcfbfa] p-6 rounded-2xl border border-gray-100/80 shadow-sm hover:border-[#c5a059] transition-all" data-aos="fade-up">
-    <span class="bg-[#1a3c5a] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase block mx-auto w-fit mb-3">DAY 1</span>
-    <h4 class="font-bold text-[#1a3c5a] text-lg mb-1.5">출국 + 18홀 라운드</h4>
-    <p class="text-xs text-slate-500 leading-relaxed">제주항공 하계 스케줄 적용으로 도착 즉시 알찬 18홀 자유 라운드</p>
-</div>
+            <div class="space-y-4 px-2">
+                <div class="bg-[#fcfbfa] p-6 rounded-2xl border border-gray-100/80 shadow-sm hover:border-[#c5a059] transition-all" data-aos="fade-up">
+                    <span class="bg-[#1a3c5a] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase block mx-auto w-fit mb-3">DAY 1</span>
+                    <h4 class="font-bold text-[#1a3c5a] text-lg mb-1.5 text-center">출국 + 18홀 라운드</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed text-center">제주항공 스케줄 적용으로 도착 즉시 알찬 18홀 자유 라운드</p>
+                </div>
                 <div class="bg-[#fcfbfa] p-6 rounded-2xl border border-gray-100/80 shadow-sm hover:border-[#c5a059] transition-all" data-aos="fade-up" data-aos-delay="50">
                     <span class="bg-[#c5a059] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase block mx-auto w-fit mb-3">DAY 2</span>
-                    <h4 class="font-bold text-[#1a3c5a] text-lg mb-1.5">18홀 동행 라운드</h4>
-                    <p class="text-xs text-slate-500 leading-relaxed">프로 동행 18홀 코스 공략 1단계</p>
+                    <h4 class="font-bold text-[#1a3c5a] text-lg mb-1.5 text-center">18홀 동행 라운드</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed text-center">프로 동행 18홀 코스 공략 1단계</p>
                 </div>
                 <div class="bg-[#fcfbfa] p-6 rounded-2xl border border-gray-100/80 shadow-sm hover:border-[#c5a059] transition-all" data-aos="fade-up" data-aos-delay="100">
                     <span class="bg-[#c5a059] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase block mx-auto w-fit mb-3">DAY 3</span>
-                    <h4 class="font-bold text-[#1a3c5a] text-lg mb-1.5">18홀 동행 라운드</h4>
-                    <p class="text-xs text-slate-500 leading-relaxed">구질 교정 및 피드백 보정, 스코어 메이킹</p>
+                    <h4 class="font-bold text-[#1a3c5a] text-lg mb-1.5 text-center">18홀 동행 라운드</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed text-center">구질 교정 및 피드백 보정, 스코어 메이킹</p>
                 </div>
                 <div class="bg-[#fcfbfa] p-6 rounded-2xl border border-gray-100/80 shadow-sm hover:border-[#c5a059] transition-all" data-aos="fade-up" data-aos-delay="150">
                     <span class="bg-[#1a3c5a] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase block mx-auto w-fit mb-3">DAY 4</span>
-                    <h4 class="font-bold text-[#1a3c5a] text-lg mb-1.5">귀국</h4>
-                    <p class="text-xs text-slate-500 leading-relaxed">제주항공 스케줄 변경으로 기본 노플레이 <br>(희망자에 한해 추가 9홀 이용 가능)</p>
+                    <h4 class="font-bold text-[#1a3c5a] text-lg mb-1.5 text-center">귀국</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed text-center">제주항공 스케줄 조정으로 기본 노플레이 <br>(희망자에 한해 추가 9홀 이용 가능)</p>
                 </div>
             </div>
         </div>
@@ -548,7 +519,7 @@
                 <div class="w-12 h-0.5 bg-[#c5a059] mx-auto"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100" data-aos="fade-right">
                     <h3 class="font-bold text-base md:text-lg text-[#1a3c5a] mb-4 flex items-center gap-2">
                         <span class="text-green-500"><i class="fas fa-check-circle"></i></span> 포함 사항
@@ -563,19 +534,19 @@
                     </ul>
                 </div>
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100/60 text-slate-500" data-aos="fade-left">
-    <h3 class="font-bold text-base md:text-lg text-slate-400 mb-4 flex items-center gap-2">
-        <span class="text-red-400"><i class="fas fa-times-circle"></i></span> 불포함 사항
-    </h3>
-    <ul class="space-y-3 text-xs md:text-sm text-slate-400">
-        <li>• 전 일정 개별 중식 (클럽하우스 개별 식단 이용)</li>
-        <li>• 마지막 날 희망자 추가 9홀 라운드 이용료 (선택 사항)</li>
-        <li>• 가이세키 기본 석식 외 특식 변경 비용 (메뉴 업그레이드 시)</li>
-        <li>• 개인 사적 경비 및 매점 지출 비용</li>
-    </ul>
-</div>
+                    <h3 class="font-bold text-base md:text-lg text-slate-400 mb-4 flex items-center gap-2">
+                        <span class="text-red-400"><i class="fas fa-times-circle"></i></span> 불포함 사항
+                    </h3>
+                    <ul class="space-y-3 text-xs md:text-sm text-slate-400">
+                        <li>• 전 일정 개별 중식 (클럽하우스 개별 식단 이용)</li>
+                        <li>• 마지막 날 희망자 추가 9홀 라운드 이용료 (선택 사항)</li>
+                        <li>• 가이세키 기본 석식 외 특식 변경 비용 (메뉴 업그레이드 시)</li>
+                        <li>• 개인 사적 경비 및 매점 지출 비용</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="bg-[#f9f7f2] p-6 rounded-2xl border border-slate-100 mt-8 text-center" data-aos="fade-up">
+            <div class="bg-[#f9f7f2] p-6 rounded-2xl border border-slate-100 mt-8 text-center mx-2" data-aos="fade-up">
                 <h4 class="font-bold text-[#1a3c5a] text-sm md:text-base mb-2">👨‍🏫 참가 스승님 및 스태프 구성</h4>
                 <p class="text-xs md:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
                     스승님 플랫폼이 인증한 스승님이 동행합니다.<br> 자세한 내용은 확정 후 스승님 운영팀이 직접 전달 드립니다.
@@ -584,151 +555,145 @@
         </div>
     </section>
 
-   <section class="section-py bg-[#1a3c5a] text-white" id="pricing">
-    <div class="container mx-auto px-4 max-w-3xl text-center">
-        <div data-aos="zoom-in">
-            <span class="text-[#c5a059] font-bold text-xs tracking-widest uppercase">PRE-RESERVATION BENEFITS</span>
-            <h2 class="font-serif text-2xl md:text-5xl font-black mt-2 mb-6 text-white">40만원 할인 특별가</h2>
-            
-            <div class="bg-white text-slate-900 rounded-3xl p-5 md:p-12 shadow-2xl border-2 border-[#c5a059] relative text-left">
-                <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-red-600 text-white px-5 py-1 rounded-full text-[10px] md:text-xs font-bold tracking-wider whitespace-nowrap">
-                    선착순 단 5인, 사전 모집
-                </span>
+    <section class="section-py bg-[#1a3c5a] text-white" id="pricing">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <div data-aos="zoom-in" class="px-1">
+                <span class="text-[#c5a059] font-bold text-xs tracking-widest uppercase">PRE-RESERVATION BENEFITS</span>
+                <h2 class="font-serif text-2xl md:text-5xl font-black mt-2 mb-6 text-white">40만원 할인 특별가</h2>
+                
+                <div class="bg-white text-slate-900 rounded-3xl p-5 md:p-12 shadow-2xl border-2 border-[#c5a059] relative text-left">
+                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-red-600 text-white px-5 py-1 rounded-full text-[10px] md:text-xs font-bold tracking-wider whitespace-nowrap">
+                        선착순 단 5인, 사전 모집
+                    </span>
 
-                <div class="mb-6 bg-slate-50 p-4 rounded-xl border border-slate-200">
-                    <p class="text-[#1a3c5a] font-black text-xs uppercase tracking-wide mb-3 flex items-center gap-1.5">
-                        <i class="fas fa-file-invoice-dollar"></i> 올인원 프리미엄 명세 내역
-                    </p>
-                    
-                    <!-- [수정] 가성비 계산 박스 삭제 -> 감정을 자극하는 타겟 추천 박스로 대체 -->
-                    <div class="mb-4 bg-white p-4 rounded-xl border border-slate-200/60 text-[11px] text-slate-600 leading-relaxed space-y-2 font-medium">
-    <p class="font-black text-[#1a3c5a] text-xs mb-1">💡 이런 분들께 강력히 추천합니다</p>
-    <p class="flex items-center gap-1.5 text-stone-700"><span>✔</span> 멋진 스승님과 함께 해외골프여행을 제대로 경험하고 싶으신 분</p>
-    <p class="flex items-center gap-1.5 text-stone-700"><span>✔</span> 일본 명문 퍼시픽블루CC를 편하게 누리고 싶으신 분</p>
-    <p class="flex items-center gap-1.5 text-stone-700"><span>✔</span> 밀착 코칭과 품격 있는 휴식을 동시에 충족하는 프리미엄 캠프를 찾으시는 분</p>
-    <p class="text-[10px] text-slate-400 mt-2 pt-1 border-t border-dashed border-slate-200/80">* 현재 9~10월 오이타 일반 항공권 시세는 약 48만 원 상당으로, 본 캠프는 항공권이 포함된 구성입니다.</p>
-</div>
-
-                    <!-- 포함사항 아이콘 박스 (유지) -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-[11px] text-slate-700 font-bold">
-                        <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
-                            <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 코스 라운드
-                        </div>
-                        <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
-                            <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 54홀 동행 라운드
-                        </div>
-                        <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
-                            <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 골프텔 숙소
-                        </div>
-                        <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
-                            <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 전일 그린피
-                        </div>
-                        <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
-                            <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 전일 카트피
-                        </div>
-                        <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
-                            <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 클럽 조식
-                        </div>
-                        <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
-                            <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 품격 석식
-                        </div>
-                        <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
-                            <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 공항 왕복 송영
-                        </div>
-                    </div>
-                </div>
-
-                <!-- [수정] 복잡한 정원 계산(8명) 삭제 -> 오직 '최대 5명 선착순' 가치만 강조 -->
-                <div class="my-6 text-center">
-                    <div class="inline-block bg-gradient-to-br from-stone-900 to-stone-950 border border-white/10 p-5 md:p-6 rounded-2xl shadow-xl w-full text-center">
-                        <p class="text-[#c5a059] text-[10px] font-bold tracking-[0.2em] uppercase mb-2">Premium Operation Scale</p>
-                        <p class="text-sm md:text-base text-stone-200 font-bold tracking-tight">
-                            초밀착 케어를 위해 <span class="text-[#c5a059] font-black underline underline-offset-4">오직 '최대 5명'</span>의 한정 정원으로만 <br class="hidden sm:inline"> 진행되는 프리미엄 하이엔드 골프캠프
+                    <div class="mb-6 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <p class="text-[#1a3c5a] font-black text-xs uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                            <i class="fas fa-file-invoice-dollar"></i> 올인원 프리미엄 명세 내역
                         </p>
-                    </div>
-                </div>
+                        
+                        <div class="mb-4 bg-white p-4 rounded-xl border border-slate-200/60 text-[11px] text-slate-600 leading-relaxed space-y-2 font-medium">
+                            <p class="font-black text-[#1a3c5a] text-xs mb-1">💡 이런 분들께 강력히 추천합니다</p>
+                            <p class="flex items-start gap-1.5 text-stone-700"><span>✔</span> 멋진 스승님과 함께 해외골프여행을 제대로 경험하고 싶으신 분</p>
+                            <p class="flex items-start gap-1.5 text-stone-700"><span>✔</span> 일본 명문 퍼시픽블루CC를 편하게 누리고 싶으신 분</p>
+                            <p class="flex items-start gap-1.5 text-stone-700"><span>✔</span> 밀착 코칭과 품격 있는 휴식을 동시에 충족하는 프리미엄 캠프를 찾으시는 분</p>
+                            <p class="text-[10px] text-slate-400 mt-2 pt-1 border-t border-dashed border-slate-200/80">* 현재 9~10월 오이타 일반 항공권 시세는 약 48만 원 상당으로, 본 캠프는 항공권이 포함된 구성입니다.</p>
+                        </div>
 
-                <div class="bg-white p-5 md:p-8 rounded-2xl border border-slate-200 shadow-lg w-full">
-                    <div class="mb-5 text-center md:text-left flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 border-b border-slate-100 pb-5">
-                        <div>
-                            <p class="text-slate-400 text-[10px] font-bold uppercase tracking-wide">6월 사전 모집 특별가</p>
-                            <div class="flex items-baseline justify-center md:justify-start gap-0.5 mt-1">
-                                <p class="text-3xl md:text-5xl font-black text-[#1a3c5a]">2,090,000</p>
-                                <span class="text-sm font-bold text-[#1a3c5a]">원</span>
-                                <span class="text-[11px] text-slate-400 font-medium ml-1">(VAT 포함)</span>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-[11px] text-slate-700 font-bold">
+                            <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
+                                <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 코스 라운드
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
+                                <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 54홀 동행 라운드
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
+                                <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 골프텔 숙소
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
+                                <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 전일 그린피
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
+                                <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 전일 카트피
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
+                                <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 클럽 조식
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
+                                <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 품격 석식
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-slate-200/50 flex items-center gap-1">
+                                <span class="text-[#c5a059]"><i class="fas fa-check text-[10px]"></i></span> 공항 왕복 송영
                             </div>
                         </div>
-                        <div class="text-slate-500 text-xs font-medium md:text-right">
-                            <span class="text-red-500 font-bold bg-red-50 px-2 py-0.5 rounded text-[11px] inline-block">
-                                정가 대비 40만원 즉시 할인 적용
-                            </span>
+                    </div>
+
+                    <div class="my-6 text-center">
+                        <div class="inline-block bg-gradient-to-br from-stone-900 to-stone-950 border border-white/10 p-5 md:p-6 rounded-2xl shadow-xl w-full text-center">
+                            <p class="text-[#c5a059] text-[10px] font-bold tracking-[0.2em] uppercase mb-2">Premium Operation Scale</p>
+                            <p class="text-sm md:text-base text-stone-200 font-bold tracking-tight">
+                                초밀착 케어를 위해 <span class="text-[#c5a059] font-black underline underline-offset-4">오직 '최대 5명'</span>의 한정 정원으로만 진행되는 프리미엄 하이엔드 골프캠프
+                            </p>
                         </div>
                     </div>
 
-                    <div class="mb-5 bg-red-50/50 border border-red-200/60 rounded-xl p-3.5 text-[11px] text-red-900 font-medium text-left">
-                        <span class="font-bold text-red-600 block mb-0.5"><i class="fas fa-plane-departure"></i> 공항 이동 및 송영 필수 체크사항</span>
-                        • 본 캠프는 오이타 공항 전용 송영 차량으로만 이동하므로, <strong class="underline underline-offset-2">오직 [인천-오이타] 직항 노선 이용자분들만 신청이 가능</strong>합니다. 후쿠오카 등 타 공항 입국 시 리조트 개별 송영 및 조인 지원이 절대 불가한 점 사전 양해 부탁드립니다.
+                    <div class="bg-white border border-slate-200 shadow-sm w-full rounded-2xl p-4 md:p-6">
+                        <div class="mb-5 text-center md:text-left flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 border-b border-slate-100 pb-5">
+                            <div>
+                                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-wide">6월 사전 모집 특별가</p>
+                                <div class="flex items-baseline justify-center md:justify-start gap-0.5 mt-1">
+                                    <p class="text-3xl md:text-5xl font-black text-[#1a3c5a]">2,090,000</p>
+                                    <span class="text-sm font-bold text-[#1a3c5a]">원</span>
+                                    <span class="text-[11px] text-slate-400 font-medium ml-1">(VAT 포함)</span>
+                                </div>
+                            </div>
+                            <div class="text-slate-500 text-xs font-medium md:text-right">
+                                <span class="text-red-500 font-bold bg-red-50 px-2 py-0.5 rounded text-[11px] inline-block">
+                                    정가 대비 40만원 즉시 할인 적용
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mb-5 bg-red-50/50 border border-red-200/60 rounded-xl p-3.5 text-[11px] text-red-900 font-medium text-left">
+                            <span class="font-bold text-red-600 block mb-0.5"><i class="fas fa-plane-departure"></i> 공항 이동 및 송영 필수 체크사항</span>
+                            • 본 캠프는 오이타 공항 전용 송영 차량으로만 이동하므로, <strong class="underline underline-offset-2">오직 [인천-오이타] 직항 노선 이용자분들만 신청이 가능</strong>합니다. 후쿠오카 등 타 공항 입국 시 리조트 개별 송영 및 조인 지원이 절대 불가한 점 사전 양해 부탁드립니다.
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-500 font-semibold text-left mb-5">
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-[#c5a059]">💳</span> 신용카드 결제 및 무이자 할부 가능
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-[#c5a059]">🏢</span> 법인카드 결제 및 비용처리 지원
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-[#c5a059]">📄</span> 현금영수증 및 세금계산서 발급
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-[#c5a059]">✅</span> 주요 일정 비용 포함 VAT 포함가
+                            </div>
+                        </div>
+
+                        <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 text-[11px] text-slate-500 space-y-1.5 text-left mb-5">
+                            <div class="flex items-center gap-1.5 font-bold text-stone-800 mb-1">
+                                <span class="text-emerald-600 text-xs">🛡️</span> 스승님 안심 보장 안내
+                            </div>
+                            <p class="pl-4 leading-relaxed">• 본 프로그램은 관련 법령 및 공정거래위원회 골프장 이용 표준약관 기준을 준수하여 안전하게 운영됩니다.</p>
+                            <p class="pl-4 leading-relaxed">• 모든 프로세스는 표준약관 및 소비자 보호 기준을 기반으로 집행되므로 안심하고 신청하셔도 좋습니다.</p>
+                        </div>
+
+                        <div class="bg-[#f9f7f2] p-4 rounded-xl text-left border border-slate-200/50 mb-5 space-y-2.5">
+                            <p class="text-xs md:text-sm text-slate-700">
+                                <strong>참가 확정금:</strong> <span class="text-[#c5a059] font-black text-base">200,000원</span> 
+                                <span class="text-[10px] text-slate-500 font-normal block sm:inline">(참가 슬롯 확보용 비용)</span>
+                            </p>
+                            <div class="text-[10px] md:text-xs text-slate-500 leading-relaxed space-y-1 pt-1 border-t border-slate-200/40">
+                                <p class="flex items-start gap-1">
+                                    <span class="text-[#c5a059]">•</span>
+                                    <span>참가 확정 안내 <strong class="text-emerald-600">전 취소 시 전액 환불</strong>됩니다.</span>
+                                </p>
+                                <p class="flex items-start gap-1">
+                                    <span class="text-red-400">•</span>
+                                    <span>참가 확정 안내 후 참가자의 단순 변심, 개인 일정, 건강상 사유 등에 의한 <strong class="text-red-600">취소 시 참가 확정금은 환불되지 않습니다.</strong></span>
+                                </p>
+                                <p class="flex items-start gap-1">
+                                    <span class="text-slate-400">•</span>
+                                    <span>주최 측 사정으로 행사가 취소되는 경우에는 <strong class="text-stone-700">전액 환불</strong>됩니다.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="#register" class="block w-full bg-[#c5a059] text-white rounded-xl text-xs md:text-base font-black py-3.5 text-center hover:bg-[#b08e4d] hover:shadow-lg transition-all tracking-wide shadow-md mb-2">
+                            지금 사전 신청하고 한정 특별가 자리 선점하기 (선착순 5인)
+                        </a>
+
+                        <a href="http://pf.kakao.com/_kxawRn/chat" target="_blank" class="block w-full bg-[#FEE500] text-[#3A1D1D] rounded-xl text-[11px] md:text-sm font-bold py-3 text-center hover:opacity-90 transition-all tracking-wide shadow-sm flex items-center justify-center gap-2">
+                            <i class="fas fa-comment text-base"></i> 카카오톡으로 실시간 빠른 문의하기
+                        </a>
                     </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-500 font-semibold text-left mb-5">
-                        <div class="flex items-center gap-1.5">
-                            <span class="text-[#c5a059]">💳</span> 신용카드 결제 및 무이자 할부 가능
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <span class="text-[#c5a059]">🏢</span> 법인카드 결제 및 비용처리 지원
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <span class="text-[#c5a059]">📄</span> 현금영수증 및 세금계산서 발급
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <span class="text-[#c5a059]">✅</span> 주요 일정 비용 포함 VAT 포함가
-                        </div>
-                    </div>
-
-                   <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 text-[11px] text-slate-500 space-y-1.5 text-left mb-5">
-                        <div class="flex items-center gap-1.5 font-bold text-stone-800 mb-1">
-                            <span class="text-emerald-600 text-xs">🛡️</span> 스승님 안심 보장 안내
-                        </div>
-                        <p class="pl-4 leading-relaxed">• 본 프로그램은 관련 법령 및 공정거래위원회 골프장 이용 표준약관 기준을 준수하여 안전하게 운영됩니다.</p>
-                        <p class="pl-4 leading-relaxed">• 모든 프로세스는 표준약관 및 소비자 보호 기준을 기반으로 집행되므로 안심하고 신청하셔도 좋습니다.</p>
-                    </div>
-
-                  <div class="bg-[#f9f7f2] p-4 rounded-xl text-left border border-slate-200/50 mb-5 space-y-2.5">
-    <!-- 금액 안내 -->
-    <p class="text-xs md:text-sm text-slate-700">
-        <strong>참가 확정금:</strong> <span class="text-[#c5a059] font-black text-base">200,000원</span> 
-        <span class="text-[10px] text-slate-500 font-normal block sm:inline">(참가 의사 확정 및 참가 슬롯 확보를 위한 금액)</span>
-    </p>
-    
-    <!-- 환불 규정 상세 (가독성 개선) -->
-    <div class="text-[10px] md:text-xs text-slate-500 leading-relaxed space-y-1 pt-1 border-t border-slate-200/40">
-        <p class="flex items-start gap-1">
-            <span class="text-[#c5a059]">•</span>
-            <span>참가 확정 안내 <strong class="text-emerald-600">전 취소 시 전액 환불</strong>됩니다.</span>
-        </p>
-        <p class="flex items-start gap-1">
-            <span class="text-red-400">•</span>
-            <span>참가 확정 안내 후 참가자의 단순 변심, 개인 일정, 건강상 사유 등에 의한 <strong class="text-red-600">취소 시 참가 확정금은 환불되지 않습니다.</strong></span>
-        </p>
-        <p class="flex items-start gap-1">
-            <span class="text-slate-400">•</span>
-            <span>주최 측 사정으로 행사가 취소되는 경우에는 <strong class="text-stone-700">전액 환불</strong>됩니다.</span>
-        </p>
-    </div>
-</div>
-
-                    <a href="#register" class="block w-full bg-[#c5a059] text-white rounded-xl text-sm md:text-lg font-black py-3.5 text-center hover:bg-[#b08e4d] hover:shadow-lg transition-all tracking-wide shadow-md mb-2">
-                        지금 사전 신청하고 한정 특별가 자리 선점하기 (선착순 5인)
-                    </a>
-
-                    <a href="http://pf.kakao.com/_kxawRn/chat" target="_blank" class="block w-full bg-[#FEE500] text-[#3A1D1D] rounded-xl text-xs md:text-sm font-bold py-3 text-center hover:opacity-90 transition-all tracking-wide shadow-sm flex items-center justify-center gap-2">
-                        <i class="fas fa-comment text-base"></i> 카카오톡으로 실시간 빠른 문의하기
-                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section class="py-16 bg-stone-50" id="faq">
         <div class="container mx-auto px-4 max-w-4xl">
@@ -738,7 +703,7 @@
                 <div class="w-12 h-0.5 bg-[#c5a059] mx-auto mt-3"></div>
             </div>
 
-            <div class="space-y-3.5" data-aos="fade-up">
+            <div class="space-y-3.5 px-2" data-aos="fade-up">
                 <details class="group bg-white rounded-2xl p-5 transition-all border border-stone-200/60 shadow-sm" open>
                     <summary class="flex justify-between items-center cursor-pointer font-black text-sm md:text-lg text-[#1a3c5a] select-none list-none">
                         <span class="flex-1 pr-4">Q. 왜 단 5명만 모집하나요?</span>
@@ -748,7 +713,7 @@
                     </summary>
                     <div class="mt-3.5 text-xs md:text-base text-slate-600 leading-relaxed border-t border-stone-100 pt-3.5 space-y-2 text-left">
                         <p class="font-semibold text-stone-800">이번 캠프는 대규모 일반 패키지 여행이 아닌, 오직 5명의 골퍼만을 위한 '소수정예 프리미엄 필드레슨' 캠프입니다.</p>
-                        <p><strong class="text-[#c5a059]">프로 2명, 스승님 전담 운영팀 1명, 참가자 최대 5명까지 총 8명 규모</strong>로만 움직입니다. 인원을 늘리면 매출은 늘겠지만, 54홀 동안 제공되는 초밀착 코칭및 실전 상황별 피드백의 밀도가 떨어지기에 엄격히 정원을 제한합니다.</p>
+                        <p><strong class="text-[#c5a059]">프로 2명, 스승님 전담 운영팀 1명, 참가자 최대 5명까지 총 8명 규모</strong>로만 움직입니다. 인원을 늘리면 매출은 늘겠지만, 54홀 동안 제공되는 초밀착 코칭 및 실전 상황별 피드백의 밀도가 떨어지기에 엄격히 정원을 제한합니다.</p>
                         <p class="bg-stone-50 p-3 rounded-xl border border-stone-100 text-[11px] text-stone-500">💡 현지 이동, 식사, 숙소, 라운드까지 스승님 전담 운영팀이 현장에서 직접 밀착 서포트하며, 참가자분들은 오직 골프 실력 향상 및 여행에만 집중하실 수 있습니다.</p>
                     </div>
                 </details>
@@ -837,30 +802,26 @@
                     </div>
                 </details>
 
-               <details class="group bg-white rounded-2xl p-5 transition-all border border-stone-200/60 shadow-sm">
-    <summary class="flex justify-between items-center cursor-pointer font-black text-sm md:text-lg text-[#1a3c5a] select-none list-none">
-        <span class="flex-1 pr-4">Q. 참가 확정금 환불은 가능한가요?</span>
-        <span class="group-open:rotate-180 transition-transform text-[#c5a059] text-sm flex-shrink-0">
-            <i class="fas fa-chevron-down"></i>
-        </span>
-    </summary>
-    <div class="mt-3.5 text-xs md:text-base text-slate-600 leading-relaxed border-t border-stone-100 pt-3.5 space-y-2.5 text-left">
-        <p class="font-bold text-stone-900">A. 참가 확정 안내 전 취소 시에는 100% 전액 환불됩니다.</p>
-        
-        <!-- [신규 반영] 강력한 리스크 방어 문장 적용 -->
-        <p>
-            참가 확정금은 참가자의 확실한 참가 의사를 확인하고 한정된 슬롯을 확보하기 위한 비용입니다. 따라서 <strong class="text-red-600 font-black">"참가 확정 안내" 이후에는 타 참가자의 신청 기회를 제한하는 특성상 원칙적으로 환불되지 않습니다.</strong>
-        </p>
-        
-        <p class="text-slate-500 text-xs md:text-sm">
-            특히 참가 확정 안내와 동시에 현지 독채 숙소, 티타임, 항공권 및 송영 차량 등의 예약이 완료되므로, 단순 변심·개인 일정·건강상 사유 등으로 취소 시 약관 제13조에 의거하여 실제 발생한 현지 위약금 및 실비가 우선 공제됩니다.
-        </p>
-        
-        <p class="text-[11px] text-emerald-600 font-semibold bg-emerald-50 p-2.5 rounded-lg border border-emerald-100">
-            ※ 주최 측의 사정으로 행사가 취소되거나, 회사의 공식 "참가 확정 안내"가 발송되기 전에 취소를 요청하시는 경우에는 조건 없이 전액 환불 처리됩니다.
-        </p>
-    </div>
-</details>
+                <details class="group bg-white rounded-2xl p-5 transition-all border border-stone-200/60 shadow-sm">
+                    <summary class="flex justify-between items-center cursor-pointer font-black text-sm md:text-lg text-[#1a3c5a] select-none list-none">
+                        <span class="flex-1 pr-4">Q. 가을 캠프 환불 조건은 어떻게 되나요?</span>
+                        <span class="group-open:rotate-180 transition-transform text-[#c5a059] text-sm flex-shrink-0">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-3.5 text-xs md:text-base text-slate-600 leading-relaxed border-t border-stone-100 pt-3.5 space-y-2.5 text-left">
+                        <p class="font-bold text-stone-900">A. 참가 확정 안내 전 취소 시에는 100% 전액 환불됩니다.</p>
+                        <p>
+                            참가 확정금은 참가자의 확실한 참가 의사를 확인하고 한정된 슬롯을 확보하기 위한 비용입니다. 따라서 <strong class="text-red-600 font-black">"참가 확정 안내" 이후에는 타 참가자의 신청 기회를 제한하는 특성상 원칙적으로 환불되지 않습니다.</strong>
+                        </p>
+                        <p class="text-slate-500 text-xs md:text-sm">
+                            특히 참가 확정 안내와 동시에 현지 독채 숙소, 티타임, 항공권 및 송영 차량 등의 예약이 완료되므로, 단순 변심·개인 일정·건강상 사유 등으로 취소 시 약관 제13조에 의거하여 실제 발생한 현지 위약금 및 실비가 우선 공제됩니다.
+                        </p>
+                        <p class="text-[11px] text-emerald-600 font-semibold bg-emerald-50 p-2.5 rounded-lg border border-emerald-100">
+                            ※ 주최 측의 사정으로 행사가 취소되거나, 회사의 공식 "참가 확정 안내"가 발송되기 전에 취소를 요청하시는 경우에는 조건 없이 전액 환불 처리됩니다.
+                        </p>
+                    </div>
+                </details>
 
                 <details class="group bg-white rounded-2xl p-5 transition-all border border-stone-200/60 shadow-sm">
                     <summary class="flex justify-between items-center cursor-pointer font-black text-sm md:text-lg text-[#1a3c5a] select-none list-none">
@@ -870,7 +831,7 @@
                         </span>
                     </summary>
                     <div class="mt-3.5 text-xs md:text-base text-slate-600 leading-relaxed border-t border-stone-100 pt-3.5 space-y-2 text-left">
-                        <p>사전참가확정금 결제 이후, 최종 출발 일정과 동행 프로 라인업이 완벽히 픽스되면 참가 확정자분들께 개별적으로 상세 일정 및 최종 잔금 안내를 드립니다.</p>
+                        <p>개인참가확정금 결제 이후, 최종 출발 일정과 동행 프로 라인업이 완벽히 픽스되면 참가 확정자분들께 개별적으로 상세 일정 및 최종 잔금 안내를 드립니다.</p>
                         <p><strong class="text-stone-900 font-bold">잔금은 확정 고지 이후, 출발일 기준 약 45일 ~ 60일 전에 납부</strong>하시게 됩니다.</p>
                         <p class="bg-stone-50 p-3 rounded-xl border border-stone-100 text-[11px] text-stone-500">
                             ⚠️ 참가 확정 이후 잔금 미납 또는 일방적인 참가 취소 시에는 예약금 환불이 불가하며, 운영사에 발생한 실비 및 취소 위약금은 참가자 부담으로 청구될 수 있습니다.
@@ -917,8 +878,8 @@
         </div>
     </section>
 
-    <section id="register" class="section-py bg-slate-50 relative">
-        <div class="container mx-auto px-4">
+    <section id="register" class="section-py bg-slate-50 relative px-2">
+        <div class="container mx-auto">
             <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-lg p-5 md:p-12 border border-gray-100">
                 <div class="text-center mb-8" data-aos="fade-up">
                     <span class="text-red-500 font-bold text-xs block mb-2 leading-relaxed"><i class="fas fa-exclamation-triangle"></i> 확실한 만족을 위해 선착순 5인 도달 시 모집은 즉시 종료됩니다.</span>
@@ -982,12 +943,10 @@
 
                     <div class="pt-4 border-t border-slate-100">
                         <label class="text-xs font-bold text-slate-500 mb-2 block tracking-wider">스승님 오이타 캠프 참가약관 및 동의사항 (v1.0)</label>
-                        
                         <button type="button" onclick="openTermsModal()" class="w-full bg-[#f9f7f2] hover:bg-stone-100 border border-stone-200 text-[#1a3c5a] text-xs font-bold py-3 px-4 rounded-xl flex justify-between items-center transition-colors">
                             <span>📄 [필수 확인] 참가약관 및 특별약관 전체 보기</span>
                             <span id="termsStatusText" class="text-red-500 font-extrabold text-[11px]">미확인</span>
                         </button>
-                        
                         <input type="checkbox" id="hiddenTermsCheck" class="hidden" required>
                     </div>
 
@@ -1004,231 +963,202 @@
     </section>
 
     <div id="termsModal" class="fixed inset-0 z-[400] hidden flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full max-h-[85vh] flex flex-col shadow-2xl border-2 border-[#c5a059]">
-        <div class="p-5 border-b border-stone-100 flex justify-between items-center bg-stone-50 rounded-t-3xl">
-            <h3 class="font-serif font-black text-sm md:text-base text-[#1a3c5a]">참가약관 및 특별약관 (v1.0)</h3>
-            <button type="button" onclick="closeTermsModal()" class="text-stone-400 hover:text-stone-700 text-lg"><i class="fas fa-times"></i></button>
-        </div>
-        
-        <div id="termsScrollBox" class="p-6 overflow-y-auto text-[11px] md:text-xs text-slate-600 space-y-4 leading-relaxed text-left bg-[#fcfcfb]">
-            <p class="font-bold text-stone-900 text-sm">스승님 오이타 프리미엄 필드레슨 캠프 참가약관 및 특별약관 v1.0</p>
-            <p class="text-slate-400">시행일 : 2026년 6월 8일</p>
-            <p>본 약관은 주식회사 스승님(이하 "회사")이 운영하는 「오이타 프리미엄 필드레슨 캠프」 참가와 관련하여 회사와 참가자 간의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
-            
-            <h4 class="font-bold text-stone-900 border-b pb-1 mt-4 text-xs">제1장 통합 이용약관</h4>
-            
-            <p><strong>제1조 목적:</strong> 본 약관은 일본 오이타 퍼시픽블루CC에서 진행되는 골프 교육 프로그램(이하 "캠프")의 참가 조건, 권리·의무, 취소·환불 기준 및 기타 필요한 사항을 정함을 목적으로 합니다.</p>
-            
-            <p><strong>제2조 프로그램의 성격:</strong><br>
-① 본 캠프는 골프 실력 향상 및 필드 경험 확대를 위한 교육 프로그램입니다.<br>
-② 본 캠프는 프로와 함께 진행되는 필드레슨 중심 프로그램이며 일반 관광상품과 성격이 다를 수 있습니다.<br>
-③ 항공, 숙박, 식사, 골프장 이용 및 송영은 프로그램 운영을 위한 부수 제공 사항입니다.<br>
-④ 참가자는 본 캠프가 여행업에 따른 일반 패키지 여행상품이 아닌 골프 교육 프로그램임을 확인하며, 항공·숙박·식사·골프장 이용은 프로그램 운영을 위한 부수 제공 사항임을 이해하고 동의합니다.</p>
-            
-            <p><strong>제3조 참가 신청 및 계약 성립:</strong><br>
-            ① 참가자는 신청서 작성 및 참가비 결제를 완료함으로써 본 약관에 동의한 것으로 간주됩니다.<br>
-            ② 회사는 참가 신청 내용을 검토 후 참가를 승인할 수 있습니다.<br>
-            ③ 참가자의 건강상태, 안전상 문제 또는 운영상 필요에 따라 참가를 제한할 수 있습니다.</p>
-            
-            <p><strong>제4조 최소 출발 인원:</strong><br>
-            ① 최소 출발 인원은 4명입니다.<br>
-            ② 최소 인원 미달 시 회사는 다음 중 하나를 선택할 수 있습니다.<br>
-            <span class="pl-2 block">• 일정 변경</span>
-            <span class="pl-2 block">• 일정 연기</span>
-            <span class="pl-2 block">• 캠프 취소 및 전액 환불</span>
-            ③ 참가자는 이에 동의합니다.</p>
-            
-         <p><strong>제5조 프로 배정 및 레슨 운영:</strong><br>
-            ① 프로 배정, 조 편성, 골프장 티오프 시간 등 현지 라운드 운영에 관한 전반적인 권한은 회사의 운영진에게 있습니다.<br>
-            ② 특정 프로 지정 요청은 참고 사항일 뿐이며 공식적으로 보장되지 않습니다.<br>
-            ③ 참가자는 특정 프로와의 동행을 보장받지 않으며, 질병, 부상, 항공 지연, 천재지변 및 프로 개인 사정 등 불가피한 사유 발생 시 동등 수준 이상의 스승님으로 변경될 수 있습니다.<br>
-            ④ 동등 수준 이상의 프로 배정 및 스승님 변경 사항은 참가 계약의 해지 또는 환불 사유가 되지 않습니다.</p>
-            
-            <p><strong>제6조 레슨 결과 비보장:</strong><br>
-            ① 골프는 개인별 차이가 큰 스포츠입니다.<br>
-            ② 회사 및 동행 스승님은 다음 사항을 보장하지 않습니다.<br>
-            <span class="pl-2 block">• 스코어 향상</span>
-            <span class="pl-2 block">• 싱글 달성</span>
-            <span class="pl-2 block">• 비거리 증가</span>
-            <span class="pl-2 block">• 특정 구질 개선</span>
-            <span class="pl-2 block">• 핸디캡 감소</span>
-            ③ 교육 결과는 참가자의 실력, 연습량, 신체조건 및 참여도에 따라 달라질 수 있습니다.<br>
-            ④ 레슨 결과에 대한 기대 차이는 환불 사유가 되지 않습니다.</p>
-            
-            <p><strong>제7조 일정 변경:</strong><br>
-            다음 사유 발생 시 일정은 변경될 수 있습니다.<br>
-            <span class="pl-2 block">• 태풍, 폭우, 강풍, 낙뢰, 감염병, 정부 정책, 항공사 사정, 골프장 사정, 기타 안전상 필요 사유</span></p>
-            
-            <p><strong>제8조 항공 및 교통:</strong><br>
-            ① 항공사 귀책사유로 발생하는 결항, 지연, 시간 변경은 해당 항공사 책임입니다.<br>
-            ② 회사는 일정 조정을 지원할 수 있으나 항공사 귀책 사유에 대한 손해를 배상하지 않습니다.</p>
-            
-           <p><strong>제9조 안전 및 사고:</strong><br>
-① 참가자는 골프가 타구사고, 낙상, 충돌 등의 위험이 있는 스포츠임을 인지합니다.<br>
-② 참가자는 자신의 건강상태를 스스로 확인하고 참가하여야 합니다.<br>
-③ 참가자의 고의 또는 과실로 발생한 사고에 대하여 회사 및 동행 프로는 책임지지 않습니다.<br>
-④ 참가자는 심혈관질환, 고혈압, 당뇨, 근골격계 질환 등 건강상 특이사항이 있는 경우 사전에 회사에 고지하여야 합니다.<br>
-⑤ 참가자의 미고지로 인해 발생한 사고에 대해서는 회사가 책임지지 않습니다.</p>
-            
-            <p><strong>제10조 보험:</strong><br>
-            ① 회사는 여행자보험 가입을 권장합니다.<br>
-            ② 보험금 지급 여부는 보험사 약관에 따릅니다.<br>
-            ③ 보험 미가입으로 발생한 손해는 참가자 본인 책임입니다.</p>
-            
-            <p><strong>제11조 귀중품 관리:</strong> 여권, 현금, 골프채, 전자기기 등 귀중품은 참가자가 직접 관리하여야 하며 분실·도난·파손 시 회사는 책임지지 않습니다.</p>
-            
-            <p><strong>제12조 참가 제한:</strong><br>
-            다음 행위 발생 시 즉시 참가 제한 또는 퇴소 조치가 가능합니다.<br>
-            <span class="pl-2 block">• 폭행, 폭언, 성희롱, 과도한 음주, 도박, 시설 파손, 운영 방해, 타 참가자에게 중대한 피해를 주는 행위</span>
-            이 경우 참가비는 환불되지 않습니다.</p>
-            
-           <p class="mt-4"><strong>제13조의2 참가 확정:</strong></p>
-            <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-[10px] md:text-[11px] my-2 text-slate-700 leading-relaxed space-y-1">
-                <p>
-                    ① <strong class="text-stone-900">참가 확정의 정의:</strong> 참가 확정은 회사가 참가자에게 최종 일정, 항공편, 숙소 및 프로진 배정을 공식 안내한 시점으로 합니다.
-                </p>
-                <p>
-                    ② <strong class="text-stone-900">통지 방법:</strong> 참가 확정 안내는 카카오톡, 문자메시지, 이메일 또는 유선 통화 등 회사가 선택한 전자적 또는 구두 방식으로 진행할 수 있습니다.
-                </p>
-                <p>
-                    ③ <strong class="text-red-600">안내 후 효력:</strong> 참가 확정 안내 이후에는 항공권 발권, 숙소 및 골프장 티타임 등 현지 예약이 전개되므로, 취소 시 아래 제13조의 취소 및 환불 규정이 엄격히 적용됩니다.
-                </p>
-            </div>
-
-        <p class="mt-4"><strong>제13조 취소 및 환불:</strong></p>
-            <table class="w-full text-left border-collapse my-2 border border-slate-200 text-[10px] md:text-[11px]">
-                <thead>
-                    <tr class="bg-slate-100">
-                        <th class="border border-slate-200 p-2 font-bold w-1/2">취소 시점</th>
-                        <th class="border border-slate-200 p-2 font-bold w-1/2">환불 기준</th>
-                    </tr>
-                </thead>
-               <tbody>
-    <tr>
-        <td class="border border-slate-200 p-2 text-emerald-600 font-bold">
-            참가 확정 안내 전
-        </td>
-        <td class="border border-slate-200 p-2 text-emerald-600 font-bold">
-            100% 환불
-        </td>
-    </tr>
-
-    <tr>
-        <td class="border border-slate-200 p-2">
-            참가 확정 안내 후 ~ 잔금 납부 전
-        </td>
-        <td class="border border-slate-200 p-2 text-stone-900 font-bold">
-            확정금 제외 환불
-        </td>
-    </tr>
-
-    <tr>
-        <td class="border border-slate-200 p-2">
-            잔금 납부 후 ~ 출발 30일 전
-        </td>
-        <td class="border border-slate-200 p-2 text-stone-900 font-bold">
-            50% 환불
-        </td>
-    </tr>
-
-    <tr>
-        <td class="border border-slate-200 p-2 text-red-500">
-            출발 29일 전 ~ 출발 당일
-        </td>
-        <td class="border border-slate-200 p-2 text-red-600 font-bold">
-            환불 불가
-        </td>
-    </tr>
-</tbody>
-            </table>
-            <div class="text-[10px] text-slate-500 mt-1.5 space-y-0.5 leading-relaxed font-medium">
-                <p class="text-red-600/90 font-bold">※ 항공권, 숙소, 티타임, 송영 차량 등 예약이 완료된 이후 취소 시 실제 발생한 비용 및 위약금은 위 환불 비율과 관계없이 환불 금액에서 우선 공제될 수 있습니다.</p>
-                <p class="text-slate-400">※ 실제 발생한 해외 송금수수료 및 외화 환전 실비 등은 공제될 수 있습니다.</p>
+        <div class="bg-white rounded-3xl max-w-xl w-full max-h-[85vh] flex flex-col shadow-2xl border-2 border-[#c5a059]">
+            <div class="p-5 border-b border-stone-100 flex justify-between items-center bg-stone-50 rounded-t-3xl">
+                <h3 class="font-serif font-black text-sm md:text-base text-[#1a3c5a]">참가약관 및 특별약관 (v1.0)</h3>
+                <button type="button" onclick="closeTermsModal()" class="text-stone-400 hover:text-stone-700 text-lg"><i class="fas fa-times"></i></button>
             </div>
             
-            <p class="mt-4"><strong>제14조 중도 이탈:</strong><br>
-            개인 사정으로 인한 일정 불참, 조기 귀국, 레슨 포기는 환불 대상이 아닙니다.</p>
+            <div id="termsScrollBox" class="p-6 overflow-y-auto text-[11px] md:text-xs text-slate-600 space-y-4 leading-relaxed text-left bg-[#fcfcfb]">
+                <p class="font-bold text-stone-900 text-sm">스승님 오이타 프리미엄 필드레슨 캠프 참가약관 및 특별약관 v1.0</p>
+                <p class="text-slate-400">시행일 : 2026년 6월 8일</p>
+                <p>본 약관은 주식회사 스승님(이하 "회사")이 운영하는 「오이타 프리미엄 필드레슨 캠프」 참가와 관련하여 회사와 참가자 간의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
+                
+                <h4 class="font-bold text-stone-900 border-b pb-1 mt-4 text-xs">제1장 통합 이용약관</h4>
+                <p><strong>제1조 목적:</strong> 본 약관은 일본 오이타 퍼시픽블루CC에서 진행되는 골프 교육 프로그램(이하 "캠프")의 참가 조건, 권리·의무, 취소·환불 기준 및 기타 필요한 사항을 정함을 목적으로 합니다.</p>
+                <p><strong>제2조 프로그램의 성격:</strong><br>
+                ① 본 캠프는 골프 실력 향상 및 필드 경험 확대를 위한 교육 프로그램입니다.<br>
+                ② 본 캠프는 프로와 함께 진행되는 필드레슨 중심 프로그램이며 일반 관광상품과 성격이 다를 수 있습니다.<br>
+                ③ 항공, 숙박, 식사, 골프장 이용 및 송영은 프로그램 운영을 위한 부수 제공 사항입니다.<br>
+                ④ 참가자는 본 캠프가 여행업에 따른 일반 패키지 여행상품이 아닌 골프 교육 프로그램임을 확인하며, 항공·숙박·식사·골프장 이용은 프로그램 운영을 위한 부수 제공 사항임을 이해하고 동의합니다.</p>
+                
+                <p><strong>제3조 참가 신청 및 계약 성립:</strong><br>
+                ① 참가자는 신청서 작성 및 참가비 결제를 완료함으로써 본 약관에 동의한 것으로 간주됩니다.<br>
+                ② 회사는 참가 신청 내용을 검토 후 참가를 승인할 수 있습니다.<br>
+                ③ 참가자의 건강상태, 안전상 문제 또는 운영상 필요에 따라 참가를 제한할 수 있습니다.</p>
+                
+                <p><strong>제4조 최소 출발 인원:</strong><br>
+                ① 최소 출발 인원은 4명입니다.<br>
+                ② 최소 인원 미달 시 회사는 다음 중 하나를 선택할 수 있습니다.<br>
+                <span class="pl-2 block">• 일정 변경</span>
+                <span class="pl-2 block">• 일정 연기</span>
+                <span class="pl-2 block">• 캠프 취소 및 전액 환불</span>
+                ③ 참가자는 이에 동의합니다.</p>
+                
+                <p><strong>제5조 프로 배정 및 레슨 운영:</strong><br>
+                ① 프로 배정, 조 편성, 골프장 티오프 시간 등 현지 라운드 운영에 관한 전반적인 권한은 회사의 운영진에게 있습니다.<br>
+                ② 특정 프로 지정 요청은 참고 사항일 뿐이며 공식적으로 보장되지 않습니다.<br>
+                ③ 참가자는 특정 프로와의 동행을 보장받지 않으며, 질병, 부상, 항공 지연, 천재지변 및 프로 개인 사정 등 불가피한 사유 발생 시 동등 수준 이상의 스승님으로 변경될 수 있습니다.<br>
+                ④ 동등 수준 이상의 프로 배정 및 스승님 변경 사항은 참가 계약의 해지 또는 환불 사유가 되지 않습니다.</p>
+                
+                <p><strong>제6조 레슨 결과 비보장:</strong><br>
+                ① 골프는 개인별 차이가 큰 스포츠입니다.<br>
+                ② 회사 및 동행 스승님은 다음 사항을 보장하지 않습니다.<br>
+                <span class="pl-2 block">• 스코어 향상</span>
+                <span class="pl-2 block">• 싱글 달성</span>
+                <span class="pl-2 block">• 비거리 증가</span>
+                <span class="pl-2 block">• 특정 구질 개선</span>
+                <span class="pl-2 block">• 핸디캡 감소</span>
+                ③ 교육 결과는 참가자의 실력, 연습량, 신체조건 및 참여도에 따라 달라질 수 있습니다.<br>
+                ④ 레슨 결과에 대한 기대 차이는 환불 사유가 되지 않습니다.</p>
+                
+                <p><strong>제7조 일정 변경:</strong><br>
+                다음 사유 발생 시 일정은 변경될 수 있습니다.<br>
+                <span class="pl-2 block">• 태풍, 폭우, 강풍, 낙뢰, 감염병, 정부 정책, 항공사 사정, 골프장 사정, 기타 안전상 필요 사유</span></p>
+                
+                <p><strong>제8조 항공 및 교통:</strong><br>
+                ① 항공사 귀책사유로 발생하는 결항, 지연, 시간 변경은 해당 항공사 책임입니다.<br>
+                ② 회사는 일정 조정을 지원할 수 있으나 항공사 귀책 사유에 대한 손해를 배상하지 않습니다.</p>
+                
+                <p><strong>제9조 안전 및 사고:</strong><br>
+                ① 참가자는 골프가 타구사고, 낙상, 충돌 등의 위험이 있는 스포츠임을 인지합니다.<br>
+                ② 참가자는 자신의 건강상태를 스스로 확인하고 참가하여야 합니다.<br>
+                ③ 참가자의 고의 또는 과실로 발생한 사고에 대하여 회사 및 동행 프로는 책임지지 않습니다.<br>
+                ④ 참가자는 심혈관질환, 고혈압, 당뇨, 근골격계 질환 등 건강상 특이사항이 있는 경우 사전에 회사에 고지하여야 합니다.<br>
+                ⑤ 참가자의 미고지로 인해 발생한 사고에 대해서는 회사가 책임지지 않습니다.</p>
+                
+                <p><strong>제10조 보험:</strong><br>
+                ① 회사는 여행자보험 가입을 권장합니다.<br>
+                ② 보험금 지급 여부는 보험사 약관에 따릅니다.<br>
+                ③ 보험 미가입으로 발생한 손해는 참가자 본인 책임입니다.</p>
+                
+                <p><strong>제11조 귀중품 관리:</strong> 여권, 현금, 골프채, 전자기기 등 귀중품은 참가자가 직접 관리하여야 하며 분실·도난·파손 시 회사는 책임지지 않습니다.</p>
+                
+                <p><strong>제12조 참가 제한:</strong><br>
+                다음 행위 발생 시 즉시 참가 제한 또는 퇴소 조치가 가능합니다.<br>
+                <span class="pl-2 block">• 폭행, 폭언, 성희롱, 과도한 음주, 도박, 시설 파손, 운영 방해, 타 참가자에게 중대한 피해를 주는 행위</span>
+                이 경우 참가비는 환불되지 않습니다.</p>
+                
+                <p class="mt-4"><strong>제13조의2 참가 확정:</strong></p>
+                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-[10px] md:text-[11px] my-2 text-slate-700 leading-relaxed space-y-1">
+                    <p>① <strong>참가 확정의 정의:</strong> 참가 확정은 회사가 참가자에게 최종 일정, 항공편, 숙소 및 프로진 배정을 공식 안내한 시점으로 합니다.</p>
+                    <p>② <strong>통지 방법:</strong> 참가 확정 안내는 카카오톡, 문자메시지, 이메일 또는 유선 통화 등 회사가 선택한 전자적 또는 구두 방식으로 진행할 수 있습니다.</p>
+                    <p>③ <strong>안내 후 효력:</strong> 참가 확정 안내 이후에는 항공권 발권, 숙소 및 골프장 티타임 등 현지 예약이 전개되므로, 취소 시 아래 제13조의 취소 및 환불 규정이 엄격히 적용됩니다.</p>
+                </div>
 
-            <h4 class="font-bold text-stone-900 border-b pb-1 mt-4 text-xs">제2장 오이타 특별약관</h4>
-            
-            <p><strong>제15조 퍼시픽블루CC 운영 특성:</strong><br>
-            ① 퍼시픽블루CC는 노캐디, 셀프플레이 방식으로 운영됩니다.<br>
-            ② 카트는 페어웨이 진입이 불가하며 카트도로만 이용 가능합니다.<br>
-            ③ 클럽 선택, 거리 확인, 공 위치 확인, 스코어 관리는 참가자가 직접 수행합니다.<br>
-            ④ 프로는 레슨 제공자이며 캐디 역할을 수행하지 않습니다.</p>
-            
-            <p><strong>제16조 티오프 시간:</strong><br>
-            ① 티오프 시간은 현지 골프장 정책에 따라 무작위 배정될 수 있습니다.<br>
-            ② 참가자는 특정 티오프 시간을 요구할 수 없습니다.<br>
-            ③ 티오프 시간 변경은 환불 사유가 되지 않습니다.</p>
-            
-            <p><strong>제17조 객실 배정:</strong><br>
-            ① 기본 숙소는 2인 1실 기준입니다.<br>
-            ② 객실은 가든빌리지로 배정됩니다.<br>
-            ③ 참가자는 객실 종류를 요청할 수 있으나 확정은 보장되지 않습니다.<br>
-            ④ 싱글룸 이용 시 별도 추가요금이 발생합니다.</p>
-            
-            <p><strong>제18조 식사:</strong><br>
-            ① 조식 및 석식은 골프장 운영 기준에 따라 제공됩니다.<br>
-            ② 중식은 기본 포함사항이 아닙니다.<br>
-            ③ 특식 이용 시 추가 비용이 발생합니다.<br>
-            ④ 외부 주류 반입은 골프장 정책에 따라 제한될 수 있습니다.</p>
-            
-            <p><strong>제19조 추가 비용:</strong><br>
-            다음 항목은 참가자 부담입니다.<br>
-            <span class="pl-2 block">• 중식, 개인 경비, 면세점 이용 비용, 특식 비용, 추가 9홀 비용, 싱글룸 추가요금, 관광 프로그램 이용료, 기타 개인 선택 서비스</span></p>
-            
-           <p><strong>제20조 송영 및 공항:</strong><br>
-① 송영은 캠프 지정 일정에 따라 운영됩니다.<br>
-② 항공 및 현지 상황에 따라 오이타공항 또는 후쿠오카공항 이용이 가능할 수 있습니다.<br>
-③ 공항 변경에 따른 이동시간 증가 가능성이 있습니다.<br>
-④ 개인 일정으로 송영을 이용하지 못하는 경우 별도 교통비는 지급되지 않습니다.<br>
-⑤ 참가자는 일본 현지 법령, 골프장 규정, 숙소 이용규정 및 운영자의 지시에 따라야 하며, 이를 위반하여 발생한 불이익에 대해 회사는 책임지지 않습니다.</p>
+                <p class="mt-4"><strong>제13조 취소 및 환불:</strong></p>
+                <table class="w-full text-left border-collapse my-2 border border-slate-200 text-[10px] md:text-[11px]">
+                    <thead>
+                        <tr class="bg-slate-100">
+                            <th class="border border-slate-200 p-2 font-bold w-1/2">취소 시점</th>
+                            <th class="border border-slate-200 p-2 font-bold w-1/2">환불 기준</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-slate-200 p-2 text-emerald-600 font-bold">참가 확정 안내 전</td>
+                            <td class="border border-slate-200 p-2 text-emerald-600 font-bold">100% 환불</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-slate-200 p-2">참가 확정 안내 후 ~ 잔금 납부 전</td>
+                            <td class="border border-slate-200 p-2 text-stone-900 font-bold">확정금 제외 환불</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-slate-200 p-2">잔금 납부 후 ~ 출발 30일 전</td>
+                            <td class="border border-slate-200 p-2 text-stone-900 font-bold">50% 환불</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-slate-200 p-2 text-red-500">출발 29일 전 ~ 출발 당일</td>
+                            <td class="border border-slate-200 p-2 text-red-600 font-bold">환불 불가</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-[10px] text-slate-500 mt-1.5 space-y-0.5 leading-relaxed font-medium">
+                    <p class="text-red-600/90 font-bold">※ 항공권, 숙소, 티타임, 송영 차량 등 예약이 완료된 이후 취소 시 실제 발생한 비용 및 위약금은 위 환불 비율과 관계없이 환불 금액에서 우선 공제될 수 있습니다.</p>
+                    <p class="text-slate-400">※ 실제 발생한 해외 송금수수료 및 외화 환전 실비 등은 공제될 수 있습니다.</p>
+                </div>
+                
+                <p class="mt-4"><strong>제14조 중도 이탈:</strong><br>
+                개인 사정으로 인한 일정 불참, 조기 귀국, 레슨 포기는 환불 대상이 아닙니다.</p>
 
-            <h4 class="font-bold text-stone-900 border-b pb-1 mt-4 text-xs">제3장 콘텐츠 활용 및 분쟁</h4>
-            
-           <p><strong>제21조 사진·영상 촬영 및 초상권:</strong><br>
-① 회사는 캠프 중 참가자의 사진 및 영상을 촬영할 수 있습니다.<br>
-② 촬영물은 다음 목적으로 활용될 수 있습니다.<br>
-<span class="pl-2 block">• 홈페이지, 앱, SNS, 광고, 보도자료, 투자자료, 정부지원사업 자료</span>
-③ 참가자는 이에 동의하며 별도의 사용료를 청구하지 않습니다.<br>
-④ 이미 제작·배포·게시된 콘텐츠에 대하여 참가자는 사후 삭제 또는 사용중단을 요구할 수 없습니다. 다만 회사는 합리적인 범위 내에서 참가자의 요청을 검토할 수 있습니다.</p>
-            
-            <p><strong>제22조 후기 활용:</strong><br>
-            참가자가 작성한 후기, 인터뷰, 설문은 회사의 마케팅 자료로 활용될 수 있습니다.</p>
-            
-            <p><strong>제23조 참가자 간 분쟁:</strong><br>
-            ① 참가자 간 발생한 금전거래, 물품거래, 언쟁, 명예훼손 등 민사상 분쟁에 대하여 회사는 책임지지 않습니다.<br>
-            ② 다만 원활한 운영을 위하여 조정에 협조할 수 있습니다.</p>
-            
-           <p><strong>제24조 면책:</strong><br>
-① 회사는 고의 또는 중대한 과실이 없는 한 다음 사유에 대하여 책임지지 않습니다.<br>
-<span class="pl-2 block">• 천재지변, 전쟁, 테러, 감염병, 항공사 귀책사유, 골프장 운영사 귀책사유, 숙소 운영사 귀책사유, 참가자 본인 과실</span>
-② 회사의 고의 또는 중대한 과실이 없는 한, 참가자의 기대와 실제 프로그램 경험 간의 차이, 개인적 만족도, 레슨 스타일, 프로와의 성향 차이 등 주관적 사유는 환불 또는 손해배상 청구 사유가 되지 않습니다.</p>
-            
-            <p><strong>제25조 관할법원:</strong><br>
-            본 약관은 대한민국 법률에 따라 해석되며 분쟁 발생 시 서울중앙지방법원을 전속 관할법원으로 합니다.</p>
+                <h4 class="font-bold text-stone-900 border-b pb-1 mt-4 text-xs">제2장 오이타 특별약관</h4>
+                <p><strong>제15조 퍼시픽블루CC 운영 특성:</strong><br>
+                ① 퍼시픽블루CC는 노캐디, 셀프플레이 방식으로 운영됩니다.<br>
+                ② 카트는 페어웨이 진입이 불가하며 카트도로만 이용 가능합니다.<br>
+                ③ 클럽 선택, 거리 확인, 공 위치 확인, 스코어 관리는 참가자가 직접 수행합니다.<br>
+                ④ 프로는 레슨 제공자이며 캐디 역할을 수행하지 않습니다.</p>
+                
+                <p><strong>제16조 티오프 시간:</strong><br>
+                ① 티오프 시간은 현지 골프장 정책에 따라 무작위 배정될 수 있습니다.<br>
+                ② 참가자는 특정 티오프 시간을 요구할 수 없습니다.<br>
+                ③ 티오프 시간 변경은 환불 사유가 되지 않습니다.</p>
+                
+                <p><strong>제17조 객실 배정:</strong><br>
+                ① 기본 숙소는 2인 1실 기준입니다.<br>
+                ② 객실은 가든빌리지로 배정됩니다.<br>
+                ③ 참가자는 객실 종류를 요청할 수 있으나 확정은 보장되지 않습니다.<br>
+                ④ 싱글룸 이용 시 별도 추가요금이 발생합니다.</p>
+                
+                <p><strong>제18조 식사:</strong><br>
+                ① 조식 및 석식은 골프장 운영 기준에 따라 제공됩니다.<br>
+                ② 중식은 기본 포함사항이 아닙니다.<br>
+                ③ 특식 이용 시 추가 비용이 발생합니다.<br>
+                ④ 외부 주류 반입은 골프장 정책에 따라 제한될 수 있습니다.</p>
+                
+                <p><strong>제19조 추가 비용:</strong><br>
+                다음 항목은 참가자 부담입니다.<br>
+                <span class="pl-2 block">• 중식, 개인 경비, 면세점 이용 비용, 특식 비용, 추가 9홀 비용, 싱글룸 추가요금, 관광 프로그램 이용료, 기타 개인 선택 서비스</span></p>
+                
+                <p><strong>제20조 송영 및 공항:</strong><br>
+                ① 송영은 캠프 지정 일정에 따라 운영됩니다.<br>
+                ② 항공 및 현지 상황에 따라 오이타공항 또는 후쿠오카공항 이용이 가능할 수 있습니다.<br>
+                ③ 공항 변경에 따른 이동시간 증가 가능성이 있습니다.<br>
+                ④ 개인 일정으로 송영을 이용하지 못하는 경우 별도 교통비는 지급되지 않습니다.<br>
+                ⑤ 참가자는 일본 현지 법령, 골프장 규정, 숙소 이용규정 및 운영자의 지시에 따라야 하며, 이를 위반하여 발생한 불이익에 대해 회사는 책임지지 않습니다.</p>
 
-            <p><strong>제26조 개인정보 수집 및 이용:</strong><br>
-            ① 회사는 캠프 운영을 위하여 다음 정보를 수집할 수 있습니다.<br>
-            <span class="pl-2 block">• 성명, 연락처, 생년월일, 여권 정보, 비상연락처, 건강 관련 정보</span>
-            ② 수집된 정보는 캠프 운영 목적 외 사용되지 않습니다.</p>
-            
-            <div class="bg-red-50 p-3 rounded-xl border border-red-100 space-y-1 font-bold text-red-900 mt-4">
-                <p>⚠️ [필수 확약 사항]</p>
-                <p>• 노캐디 셀프플레이 운영방식 및 환불규정을 정확히 확인했습니다.</p>
-                <p>• 프로 배정 변동 가능성 및 레슨 결과 비보장 조항에 동의합니다.</p>
-                <p>• 마케팅 및 광고를 위한 내용 활용에 최종 동의합니다.</p>
+                <h4 class="font-bold text-stone-900 border-b pb-1 mt-4 text-xs">제3장 콘텐츠 활용 및 분쟁</h4>
+                <p><strong>제21조 사진·영상 촬영 및 초상권:</strong><br>
+                ① 회사는 캠프 중 참가자의 사진 및 영상을 촬영할 수 있습니다.<br>
+                ② 촬영물은 다음 목적으로 활용될 수 있습니다.<br>
+                <span class="pl-2 block">• 홈페이지, 앱, SNS, 광고, 보도자료, 투자자료, 정부지원사업 자료</span>
+                ③ 참가자는 이에 동의하며 별도의 사용료를 청구하지 않습니다.<br>
+                ④ 이미 제작·배포·게시된 콘텐츠에 대하여 참가자는 사후 삭제 또는 사용중단을 요구할 수 없습니다. 다만 회사는 합리적인 범위 내에서 참가자의 요청을 검토할 수 있습니다.</p>
+                
+                <p><strong>제22조 후기 활용:</strong><br>
+                참가자가 작성한 후기, 인터뷰, 설문은 회사의 마케팅 자료로 활용될 수 있습니다.</p>
+                
+                <p><strong>제23조 참가자 간 분쟁:</strong><br>
+                ① 참가자 간 발생한 금전거래, 물품거래, 언쟁, 명예훼손 등 민사상 분쟁에 대하여 회사는 책임지지 않습니다.<br>
+                ② 다만 원활한 운영을 위하여 조정에 협조할 수 있습니다.</p>
+                
+                <p><strong>제24조 면책:</strong><br>
+                ① 회사는 고의 또는 중대한 과실이 없는 한 다음 사유에 대하여 책임지지 않습니다.<br>
+                <span class="pl-2 block">• 천재지변, 전쟁, 테러, 감염병, 항공사 귀책사유, 골프장 운영사 귀책사유, 숙소 운영사 귀책사유, 참가자 본인 과실</span>
+                ② 회사의 고의 또는 중대한 과실이 없는 한, 참가자의 기대와 실제 프로그램 경험 간의 차이, 개인적 만족도, 레슨 스타일, 프로와의 성향 차이 등 주관적 사유는 환불 또는 손해배상 청구 사유가 되지 않습니다.</p>
+                
+                <p><strong>제25조 관할법원:</strong><br>
+                본 약관은 대한민국 법률에 따라 해석되며 분쟁 발생 시 서울중앙지방법원을 전속 관할법원으로 합니다.</p>
+                
+                <p><strong>제26조 개인정보 수집 및 이용:</strong><br>
+                ① 회사는 캠프 운영을 위하여 다음 정보를 수집할 수 있습니다.<br>
+                <span class="pl-2 block">• 성명, 연락처, 생년월일, 여권 정보, 비상연락처, 건강 관련 정보</span>
+                ② 수집된 정보는 캠프 운영 목적 외 사용되지 않습니다.</p>
+                
+                <div class="bg-red-50 p-3 rounded-xl border border-red-100 space-y-1 font-bold text-red-900 mt-4">
+                    <p>⚠️ [필수 확약 사항]</p>
+                    <p>• 노캐디 셀프플레이 운영방식 및 환불규정을 정확히 확인했습니다.</p>
+                    <p>• 프로 배정 변동 가능성 및 레슨 결과 비보장 조항에 동의합니다.</p>
+                    <p>• 마케팅 및 광고를 위한 내용 활용에 최종 동의합니다.</p>
+                </div>
             </div>
-        </div>
-        
-        <div class="p-4 border-t border-stone-100 bg-stone-50 rounded-b-3xl text-center">
-            <button type="button" id="modalAgreeBtn" disabled onclick="agreeTermsFromModal()" class="w-full bg-stone-400 text-white py-3.5 rounded-xl font-bold text-sm cursor-not-allowed transition-all">
-                스크롤을 맨 아래까지 내려주세요
-            </button>
+            
+            <div class="p-4 border-t border-stone-100 bg-stone-50 rounded-b-3xl text-center">
+                <button type="button" id="modalAgreeBtn" disabled onclick="agreeTermsFromModal()" class="w-full bg-stone-400 text-white py-3.5 rounded-xl font-bold text-sm cursor-not-allowed transition-all">
+                    스크롤을 맨 아래까지 내려주세요
+                </button>
+            </div>
         </div>
     </div>
-</div>
 
     <footer class="bg-white pt-12 pb-28 border-t border-slate-100 text-center px-4">
         <div class="container mx-auto max-w-4xl">
@@ -1241,7 +1171,7 @@
                 Premium Golf Itinerary Series - Oita Pacific Blue CC
             </p>
 
-            <div class="text-slate-400 text-[11px] leading-relaxed max-w-xl mx-auto border-y py-6 border-slate-100 mb-4 space-y-1 text-left md:text-center">
+            <div class="text-slate-400 text-[11px] leading-relaxed max-w-xl mx-auto border-y py-6 border-slate-100 mb-4 space-y-1 text-left md:text-center px-2">
                 <p class="font-bold text-stone-700">주식회사 스승님 | 회원관리 마케팅팀</p>
                 <p>사업자번호: 470-81-03277 | 주소: 경기도 수원시 광교로 107, 경기도경제과학진흥원 창업보육동 204호</p>
                 <p>고객센터: 02-1551-0641 (평일 10:00 - 18:00)</p>
@@ -1281,7 +1211,7 @@
                 </div>
                 
                 <div class="bg-white border border-slate-200/60 p-4 rounded-2xl shadow-[inset_0_2px_4px_rgba(0,0,0,0.01)]">
-                    <h5 class="text-xs font-black text-[#1a3c5a] mb-1.5">🎯 레슨 강점 및 매니지먼트 톤</h5>
+                    <h5>🎯 레슨 강점 및 매니지먼트 톤</h5>
                     <p id="modalProSpec" class="text-xs text-slate-500 leading-relaxed font-medium">
                     </p>
                 </div>
@@ -1295,8 +1225,8 @@
         </div>
     </div>
 
-    <div class="md:hidden fixed bottom-6 left-0 right-0 z-[100] px-4 w-full box-border">
-        <div class="bg-white/95 backdrop-blur-md rounded-2xl px-3 py-3 shadow-2xl flex items-center justify-between gap-3 border border-[#c5a059]/30 min-w-0 w-full box-border">
+    <div class="fixed bottom-6 left-0 right-0 z-[100] px-4 w-full box-border">
+        <div class="bg-white/95 backdrop-blur-md rounded-2xl px-4 py-3 shadow-2xl flex items-center justify-between gap-3 border border-[#c5a059]/30 min-w-0 w-full box-border">
             <div class="flex flex-col flex-1 min-w-0">
                 <span class="text-[9px] text-red-500 font-black uppercase tracking-tight truncate">6월 사전 신청가</span>
                 <div class="flex items-baseline flex-wrap gap-0.5">
@@ -1306,7 +1236,7 @@
                 </div>
             </div>
             
-            <a href="#register" class="bg-[#1a3c5a] text-white px-3.5 py-2.5 rounded-xl text-[11px] font-black shadow-md hover:bg-[#c5a059] transition-all flex-shrink-0 whitespace-nowrap tracking-wide">
+            <a href="#register" class="bg-[#1a3c5a] text-white px-4 py-2.5 rounded-xl text-[11px] font-black shadow-md hover:bg-[#c5a059] transition-all flex-shrink-0 whitespace-nowrap tracking-wide">
                 사전 신청하기
             </a>
         </div>
@@ -1320,7 +1250,8 @@
             <i class="fas fa-phone"></i>
         </a>
     </div>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({ 
             duration: 1000, 
@@ -1352,7 +1283,6 @@
             modal.classList.remove('flex');
         }
 
-        // ---------------- [약관 모달 제어 및 스크롤 강제 스크립트] ----------------
         const termsModal = document.getElementById('termsModal');
         const termsScrollBox = document.getElementById('termsScrollBox');
         const modalAgreeBtn = document.getElementById('modalAgreeBtn');
@@ -1398,7 +1328,6 @@
             
             closeTermsModal();
         }
-        // ----------------------------------------------------------------------
 
         function sharePage() {
             if (navigator.share) {
@@ -1413,8 +1342,9 @@
                 document.body.appendChild(el);
                 el.select();
                 document.execCommand('copy');
+                document.execCommand('copy');
                 document.body.removeChild(el);
-                triggerCustomAlert('リンク 복사 완료', '공유용 랜딩페이지 링크가 클립보드에 무사히 복사되었습니다.');
+                triggerCustomAlert('링크 복사 완료', '공유용 랜딩페이지 링크가 클립보드에 무사히 복사되었습니다.');
             }
         }
 
@@ -1430,11 +1360,11 @@
                     "🤝 플레이어의 멘탈을 흔들림 없이 잡아주는 1:1 밀착 에스코트",
                     "✨ 최고 직급 스승님의 품격에 걸맞은 세심하고 정중한 커뮤니케이션"
                 ],
-                spec: "단순히 라운드를 같이 도는 것을 넘어, 3박 4일 동안 플레이어의 필드 파트너로서 동행합니다. 우승 경험에서 나온 예리한 코스 분석력과 정중한 매너로, 명문 퍼시픽블루CC에서의 시간을 가장 가치 있는 프리미엄 여정으로 만들어 드립니다."
+                spec: "단순히 라운드를 같이 도는 것을 넘어, 3박 4일 동안 플레이어의 필드 파트너로서 동행합니다. 우승 경험에서 나온 예리한 코스 분석력และ 정중한 매너로, 명문 퍼시픽블루CC에서의 시간을 가장 가치 있는 프리미엄 여정으로 만들어 드립니다."
             },
             ksr: {
                 name: "곽시랑 프로",
-                title: "KLPGA 준회원 | 강남권 프리미엄 레슨 명인",
+                title: "KLPGA 회원 | 강남권 프리미엄 레슨 명인",
                 img: "https://rlaeodn1015-oss.github.io/camp/images/ksr2.jpg",
                 career: [
                     "💎 강남·서초에서 검증된 하이엔드 소통 및 매너",
@@ -1489,7 +1419,6 @@
             }, 200);
         }
 
-        // Form Submission with Telegram API & GA4 Measurement Protocol
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.getElementById('sseuseungnimFinalForm');
             if (!form) return;
@@ -1533,7 +1462,6 @@
                 `;
 
                 try {
-                    // 1. 기존 텔레그램 알림 전송
                     await fetch(`https://api.telegram.org/bot8696133005:AAF8Uh6gK0hufHuQyufAkmZhUcjGpYCAxzE/sendMessage`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
@@ -1543,7 +1471,6 @@
                         })
                     });
 
-                    // 2. GA4 측정 프로토콜 API 전송
                     if (typeof gtag === 'function') {
                         gtag('get', 'G-SDDS8EP10J', 'client_id', async function(clientId) {
                             try {
@@ -1580,5 +1507,5 @@
             });
         }); 
     </script>
-    </body>
+</body>
 </html>
