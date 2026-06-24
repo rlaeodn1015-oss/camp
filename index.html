@@ -152,6 +152,7 @@
                 <div class="w-full max-w-sm mx-auto mb-8 bg-white/10 border border-white/20 rounded-2xl p-4 text-left backdrop-blur-sm">
     <p class="text-[11px] text-[#c5a059] font-black uppercase tracking-wider mb-2.5 text-center">📅 출발 일정 및 예약 현황</p>
     <div class="space-y-2">
+        <!-- 1차 일정 (기존 유지) -->
         <div class="flex justify-between items-center bg-black/30 p-2.5 rounded-xl border border-white/5">
             <div>
                 <span class="text-[10px] bg-[#1a3c5a] text-white px-2 py-0.5 rounded font-bold mr-1.5">1차</span>
@@ -162,13 +163,16 @@
                 <span class="text-xs font-black text-red-400 animate-pulse bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">잔여 2석</span>
             </div>
         </div>
+        
+        <!-- 2차 일정 (대표님 지시 의거: 팩트 기반 실시간 업데이트 완료) -->
         <div class="flex justify-between items-center bg-black/30 p-2.5 rounded-xl border border-white/5">
             <div>
                 <span class="text-[10px] bg-[#c5a059] text-white px-2 py-0.5 rounded font-bold mr-1.5">2차</span>
                 <span class="text-xs sm:text-sm font-bold text-stone-100">9월 19일 ~ 22일</span>
             </div>
             <div class="text-right">
-                <span class="text-xs font-black text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">5석 모집중</span>
+                <span class="text-[11px] text-stone-400 block sm:inline mr-1">2명 완료</span>
+                <span class="text-xs font-black text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">잔여 3석</span>
             </div>
         </div>
     </div>
@@ -490,19 +494,18 @@
    <section class="py-12 bg-stone-50 border-t border-stone-200/60">
     <div class="container mx-auto px-4 max-w-xl text-center">
         <span class="text-[#c5a059] font-bold text-xs tracking-widest uppercase block mb-1">REAL-TIME STATUS</span>
-        <h3 class="text-xl md:text-2xl font-black text-[#1a3c5a] mb-2">현재 모집 현황</h3>
+        <h3 class="text-xl md:text-2xl font-black text-[#1a3c5a] mb-2">현재 기수별 모집 현황</h3>
         <p class="text-xs text-stone-500 font-medium max-w-sm mx-auto leading-relaxed mb-8">
-            본 프로그램은 밀착 프로 피드백을 위해 <strong>최대 5명</strong>으로 정원을 제한하 조기 마감될 수 있습니다.
+            본 프로그램은 밀착 프로 피드백을 위해 기수별 <strong>최대 5명</strong>으로 정원을 엄격히 제한하여 조기 마감될 수 있습니다.
         </p>
 
-        <div class="space-y-4 text-left max-w-md mx-auto">
+        <div class="space-y-4 text-left max-w-md mx-auto mb-6">
             <!-- 1차 일정 카드 -->
             <div class="relative bg-white border-2 border-red-500 rounded-2xl p-5 shadow-sm">
                 <div class="absolute top-4 right-4 bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-md animate-pulse">마감 임박</div>
-                <span class="text-[11px] font-black text-red-500 uppercase tracking-wider block mb-0.5">1차 일정</span>
+                <span class="text-[11px] font-black text-red-500 uppercase tracking-wider block mb-0.5">1차 일정 (3박 4일)</span>
                 <h4 class="text-base sm:text-lg font-black text-stone-900 mb-4">9월 12일(토) ~ 9월 15일(화)</h4>
                 
-                <!-- 게이지바 -->
                 <div class="w-full h-2.5 bg-stone-100 rounded-full overflow-hidden mb-3 border border-stone-200/40">
                     <div class="h-full bg-red-500 rounded-full" style="width: 60%;"></div>
                 </div>
@@ -512,44 +515,62 @@
                     <span class="text-stone-900">잔여 <strong class="text-red-500 font-black text-sm">2자리</strong></span>
                 </div>
 
-                <!-- 1차 직행 버튼 -->
-                <a href="#register" class="w-full block text-center bg-red-500 hover:bg-red-600 text-white py-3 rounded-xl font-black text-sm transition-all shadow-md shadow-red-100">
-                    1차 일정 선점하기
+                <a href="http://pf.kakao.com/_kxawRn/chat" target="_blank" class="w-full block text-center bg-red-500 hover:bg-red-600 text-white py-3 rounded-xl font-black text-sm transition-all shadow-md shadow-red-100">
+                    🔥 1차 일정 카톡으로 선점하기
                 </a>
             </div>
 
             <!-- 2차 일정 카드 -->
             <div class="relative bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
                 <div class="absolute top-4 right-4 bg-stone-200 text-stone-600 text-[10px] font-black px-2.5 py-1 rounded-md">상담 진행중</div>
-                <span class="text-[11px] font-black text-stone-400 uppercase tracking-wider block mb-0.5">2차 일정</span>
+                <span class="text-[11px] font-black text-stone-400 uppercase tracking-wider block mb-0.5">2차 일정 (3박 4일)</span>
                 <h4 class="text-base sm:text-lg font-black text-stone-900 mb-4">9월 19일(토) ~ 9월 22일(화)</h4>
                 
-                <!-- 게이지바 -->
                 <div class="w-full h-2.5 bg-stone-100 rounded-full overflow-hidden mb-3 border border-stone-200/40">
                     <div class="h-full bg-stone-400 rounded-full" style="width: 40%;"></div>
                 </div>
                 
                 <div class="flex justify-between items-center text-xs font-bold mb-4">
                     <span class="text-stone-600"><i class="fas fa-phone-alt mr-1"></i> 2명 사전 상담중</span>
-                    <span class="text-stone-500">잔여 3자리</span>
+                    <span class="text-stone-500">모집 중</span>
                 </div>
 
-                <!-- 2차 직행 버튼 -->
-                <a href="#register" class="w-full block text-center bg-[#1a3c5a] hover:bg-[#112b45] text-white py-3 rounded-xl font-black text-sm transition-all">
-                    2차 일정 신청하기
+                <a href="http://pf.kakao.com/_kxawRn/chat" target="_blank" class="w-full block text-center bg-[#1a3c5a] hover:bg-[#112b45] text-white py-3 rounded-xl font-black text-sm transition-all">
+                    💬 2차 일정 카톡 문의하기
                 </a>
+            </div>
+
+            <!-- 대표님 추천: 원하시는 일정 신청 가능 안내 섹션 추가 -->
+            <div class="bg-[#f9f7f2] border border-[#e7dcc3] rounded-2xl p-4 shadow-sm text-left">
+    <div class="flex items-center gap-2 mb-2">
+        <span class="text-[#c5a059] text-base">📅</span>
+        <span class="font-black text-sm text-[#1a3c5a]">원하시는 다른 날짜나 일정도 신청 가능합니다</span>
+    </div>
+    
+    <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+        현재 모집 중인 일정 외에도 원하시는 출발 날짜를 신청하실 수 있습니다.
+    </p>
+
+    <span class="block mt-1 text-xs sm:text-sm text-stone-600">
+        • <strong>2박 3일 (목~토)</strong> : 189만 원<br>
+        • <strong>3박 4일 (토~화)</strong> : 209만 원
+    </span>
+
+    <span class="block mt-2 text-stone-400 text-[11px] leading-relaxed">
+        * 희망 일정 접수 후 참가 희망자가 모집될 경우 추가 기수가 개설될 수 있으며, 개별적으로 안내드립니다.
+    </span>
+</div>
+                </p>
             </div>
         </div>
 
-        <!-- 핵심 커스텀 추천: 최적 대안 안내 UI -->
-        <div class="mt-8 max-w-md mx-auto bg-amber-50/60 border border-amber-200/70 rounded-2xl p-5 text-center">
-            <span class="text-base">🔥</span>
-            <h5 class="text-sm font-black text-amber-900 inline-block ml-1">현재 가장 빠르게 마감 중인 일정</h5>
-            <p class="text-base font-black text-stone-900 mt-2">9월 12일 ~ 15일 (1차)</p>
-            <p class="text-xs text-red-600 font-bold mt-0.5">3명 확정 완료 | 잔여 딱 2자리</p>
-            
-            <a href="#register" class="mt-4 w-full block text-center bg-stone-900 hover:bg-stone-800 text-white py-3 rounded-xl font-black text-sm transition-all tracking-tight">
-                [급상승] 1차 일정 상담 신청하기
+        <!-- 메인 투트랙 고전환 CTA 버튼 영역 -->
+        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <a href="http://pf.kakao.com/_kxawRn/chat" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-[#FEE500] text-[#191919] py-3.5 rounded-xl font-black text-sm hover:brightness-95 transition-all shadow-sm">
+                <span>💬</span> 카카오톡 상담하기
+            </a>
+            <a href="#register" class="flex-1 flex items-center justify-center gap-2 bg-[#1a3c5a] text-white py-3.5 rounded-xl font-black text-sm hover:bg-[#112b45] transition-all shadow-sm">
+                <span>📝</span> 참가 신청서 작성하기
             </a>
         </div>
     </div>
@@ -836,127 +857,136 @@
 
     <!-- 13. 사전 참가 상담 신청서 (지시하신 날짜 선택형 라디오 레이아웃 완벽 구축) -->
     <section id="register" class="section-py bg-white px-2">
-        <div class="container mx-auto">
-            <div class="max-w-xl mx-auto bg-stone-50 rounded-2xl border border-stone-200 p-5 md:p-8 shadow-sm">
-                <div class="text-center mb-6">
-                    <p class="text-red-500 font-bold text-xs mb-1">📢 소수정예 5명 정원이 마감되면 접수창이 자동 종료됩니다.</p>
-                    <h2 class="text-xl font-black text-[#1a3c5a]">1차 사전 참가 상담 신청서</h2>
-                    <p class="text-stone-400 text-[11px] mt-0.5">희망 일정 확인 및 티타임 인원 조율을 위해 기본 정보만 입력해 주세요.</p>
-                </div>
-
-                <form id="sseuseungnimFinalForm" class="space-y-4 text-xs sm:text-sm">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                        <div>
-                            <label class="text-xs font-bold text-slate-600 mb-1 block tracking-wider">이름</label>
-                            <input type="text" id="inputName" required placeholder="성함 입력" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm focus:border-[#c5a059] outline-none transition-all">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-slate-600 mb-1 block tracking-wider">휴대폰번호</label>
-                            <input type="tel" id="inputPhone" required placeholder="01012345678" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm focus:border-[#c5a059] outline-none transition-all">
-                        </div>
-                    </div>
-
-                    <!-- 대표님 지시 의거: 고전환형 일정 선택 라디오 버튼형 아키텍처 연동 -->
-                    <div class="max-w-md mx-auto space-y-4 text-left p-4">
-    <div>
-        <label class="block text-sm font-black text-stone-800 mb-2">참가 희망 일정 <span class="text-red-500">*</span></label>
-        <div class="space-y-2">
-            <!-- 1차 선택지 -->
-            <label class="flex items-center justify-between p-3 bg-white border-2 border-red-500 rounded-xl cursor-pointer">
-                <div class="flex items-center gap-3">
-                    <input type="radio" name="schedule" value="1st" class="text-red-500 focus:ring-red-500" checked>
-                    <span class="text-sm font-bold text-stone-900">9월 12일 ~ 15일 (1차)</span>
-                </div>
-                <span class="text-xs font-black text-red-500 bg-red-50 px-2 py-0.5 rounded">마감임박 (2자리)</span>
-            </label>
-
-            <!-- 2차 선택지 -->
-            <label class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-xl cursor-pointer hover:border-stone-300">
-                <div class="flex items-center gap-3">
-                    <input type="radio" name="schedule" value="2nd" class="text-[#1a3c5a] focus:ring-[#1a3c5a]">
-                    <span class="text-sm font-bold text-stone-800">9월 19일 ~ 22일 (2차)</span>
-                </div>
-                <span class="text-xs font-medium text-stone-500">잔여 3자리</span>
-            </label>
-
-            <!-- 3차 선택지 -->
-            <label class="flex items-center gap-3 p-3 bg-white border border-stone-200 rounded-xl cursor-pointer hover:border-stone-300">
-                <input type="radio" name="schedule" value="undecided" class="text-stone-500 focus:ring-stone-500">
-                <span class="text-sm font-bold text-stone-600">상담 후 결정</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- 기존 영역 -->
-    <div class="mt-4">
-        <label class="block text-sm font-black text-stone-800 mb-2">상담 매니저 유선 연락 희망 시간대</label>
-        <!-- 기존의 연락 시간대 input/select 위치 -->
-    </div>
-</div>
-
-                    <div>
-                        <label class="text-xs font-bold text-slate-600 mb-1.5 block tracking-wider">상담 매니저 유선 연락 희망 시간대</label>
-                        <div class="grid grid-cols-3 gap-2">
-                            <label class="relative border border-gray-200 bg-white rounded-xl p-3 flex items-center justify-center gap-1.5 cursor-pointer">
-                                <input type="radio" name="contact_time" value="오전" required class="accent-[#c5a059] relative z-10">
-                                <span class="text-xs font-bold text-stone-700 relative z-10">☀️ 오전</span>
-                                <div class="radio-bg absolute inset-0 border border-transparent rounded-xl transition-all"></div>
-                            </label>
-                            <label class="relative border border-gray-200 bg-white rounded-xl p-3 flex items-center justify-center gap-1.5 cursor-pointer">
-                                <input type="radio" name="contact_time" value="오후" checked class="accent-[#c5a059] relative z-10">
-                                <span class="text-xs font-bold text-stone-700 relative z-10">⛅ 오후</span>
-                                <div class="radio-bg absolute inset-0 border border-transparent rounded-xl transition-all"></div>
-                            </label>
-                            <label class="relative border border-gray-200 bg-white rounded-xl p-3 flex items-center justify-center gap-1.5 cursor-pointer">
-                                <input type="radio" name="contact_time" value="저녁" class="accent-[#c5a059] relative z-10">
-                                <span class="text-xs font-bold text-stone-700 relative z-10">🌙 저녁</span>
-                                <div class="radio-bg absolute inset-0 border border-transparent rounded-xl transition-all"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="text-xs font-bold text-slate-600 mb-1 block tracking-wider">참가 희망 동반인 인원수</label>
-                        <select id="selectPeople" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm focus:border-[#c5a059] outline-none h-11">
-                            <option value="1">1명 (혼자 신청 및 참가)</option>
-                            <option value="2">2명 (부부, 파트너 동반 1인 포함)</option>
-                            <option value="3">3명 (지인 동반 단독 조 편성 희망)</option>
-                            <option value="4 이상">4명 이상 단체 신청</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="text-xs font-bold text-slate-600 mb-1 block tracking-wider">현재 타수 상태 및 희망하시는 개선 사항 (선택)</label>
-                        <textarea id="textMessage" rows="2" placeholder="예: 구력 3년 차 95타 수준입니다. 어프로치와 코스 공략 노하우를 상세히 배우고 싶습니다." class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm focus:border-[#c5a059] outline-none transition-all"></textarea>
-                    </div>
-
-                    <!-- 법무 약관 동의 영역 (스크롤 잠금 연동 UI) -->
-                    <div class="pt-3 border-t border-stone-200">
-                        <label class="text-xs font-bold text-slate-500 mb-2 block tracking-wider">스승님 오이타 캠프 참가약관 및 동의사항 (v1.0)</label>
-                        <div class="space-y-2">
-                            <button type="button" onclick="openTermsModal()" class="w-full bg-[#f9f7f2] hover:bg-stone-100 border border-stone-200 text-[#1a3c5a] text-xs font-bold py-3 px-4 rounded-xl flex justify-between items-center transition-colors">
-                                <span>📄 [필수 확인] 참가약관 및 특별약관 전체 보기</span>
-                                <span id="termsStatusText" class="text-red-500 font-extrabold text-[11px]">미확인</span>
-                            </button>
-                            <div class="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-gray-200">
-                                <input type="checkbox" id="explicitTermsCheck" disabled class="w-4 h-4 mt-0.5 accent-[#1a3c5a] cursor-not-allowed">
-                                <label for="explicitTermsCheck" id="checkLabel" class="text-[11px] text-slate-400 font-medium leading-relaxed select-none">
-                                    위 약관을 열람하여 스크롤을 맨 아래까지 내려 완료해 주세요.
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" id="submitBtn" disabled class="w-full bg-stone-400 text-white text-sm sm:text-base font-black py-3.5 rounded-xl shadow-lg cursor-not-allowed transition-all tracking-wide h-12 flex items-center justify-center">
-                        위 약관 사항에 모두 동의해 주세요
-                    </button>
-                    <p class="text-center text-[10px] text-slate-400 font-medium">
-                        * 제출된 연락처는 사전 참가 예약 상담 및 안내 용도 외에 다른 용도로 절대 활용되지 않습니다.
-                    </p>
-                </form>
+    <div class="container mx-auto">
+        <div class="max-w-xl mx-auto bg-stone-50 rounded-2xl border border-stone-200 p-5 md:p-8 shadow-sm">
+            <div class="text-center mb-6">
+                <p class="text-red-500 font-bold text-xs mb-1">📢 소수정예 5명 정원이 마감되면 접수창이 자동 종료됩니다.</p>
+                <h2 class="text-xl font-black text-[#1a3c5a]">사전 참가 상담 신청서</h2>
+                <p class="text-stone-400 text-[11px] mt-0.5">희망 일정 확인 및 티타임 인원 조율을 위해 기본 정보만 입력해 주세요.</p>
             </div>
+
+            <form id="sseuseungnimFinalForm" class="space-y-4 text-xs sm:text-sm">
+                <!-- 이름 / 휴대폰번호 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                        <label class="text-xs font-bold text-slate-600 mb-1 block tracking-wider">이름</label>
+                        <input type="text" id="inputName" required placeholder="성함 입력" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm focus:border-[#c5a059] outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-600 mb-1 block tracking-wider">휴대폰번호</label>
+                        <input type="tel" id="inputPhone" required placeholder="01012345678" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm focus:border-[#c5a059] outline-none transition-all">
+                    </div>
+                </div>
+
+                <!-- 참가 희망 일정 (대표님 지시 다변화 구조 연동) -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1.5 block tracking-wider">참가 희망 일정 <span class="text-red-500">*</span></label>
+                    <div class="space-y-2">
+                        <!-- 지정 기수 옵션 -->
+                        <label class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-xl cursor-pointer hover:border-stone-300">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="schedule" value="1st" class="text-[#1a3c5a] focus:ring-[#1a3c5a]" checked>
+                                <span class="text-xs sm:text-sm font-bold text-stone-800">9월 12일 ~ 15일 (1차 기수 · 3박4일)</span>
+                            </div>
+                            <span class="text-[10px] sm:text-xs font-black text-red-500 bg-red-50 px-2 py-0.5 rounded">마감임박 (2자리)</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-3 bg-white border border-stone-200 rounded-xl cursor-pointer hover:border-stone-300">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="schedule" value="2nd" class="text-[#1a3c5a] focus:ring-[#1a3c5a]">
+                                <span class="text-xs sm:text-sm font-bold text-stone-800">9월 19일 ~ 22일 (2차 기수 · 3박4일)</span>
+                            </div>
+                            <span class="text-[10px] sm:text-xs font-medium text-stone-500">모집 중</span>
+                        </label>
+
+                        <!-- 대표님 지시: 자유 일정 옵션 추가 -->
+                        <label class="flex items-center justify-between p-3 bg-white border-2 border-amber-500/80 rounded-xl cursor-pointer bg-amber-50/20">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="schedule" value="free_2b3d" class="text-amber-600 focus:ring-amber-500">
+                                <span class="text-xs sm:text-sm font-bold text-stone-900">별도 날짜 지정: 2박 3일 (목 ~ 토) 희망 <span class="text-stone-500 font-normal ml-1">(189만 원)</span></span>
+                            </div>
+                            <span class="text-[10px] sm:text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">일정 협의 가능</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-3 bg-white border-2 border-amber-500/80 rounded-xl cursor-pointer bg-amber-50/20">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="schedule" value="free_3b4d" class="text-amber-600 focus:ring-amber-500">
+                                <span class="text-xs sm:text-sm font-bold text-stone-900">별도 날짜 지정: 3박 4일 (토 ~ 화) 희망 <span class="text-stone-500 font-normal ml-1">(209만 원)</span></span>
+                            </div>
+                            <span class="text-[10px] sm:text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">일정 협의 가능</span>
+                        </label>
+
+                        <label class="flex items-center gap-3 p-3 bg-white border border-stone-200 rounded-xl cursor-pointer hover:border-stone-300">
+                            <input type="radio" name="schedule" value="undecided" class="text-stone-500 focus:ring-stone-500">
+                            <span class="text-xs sm:text-sm font-bold text-stone-600">기타 / 매니저 상담 후 결정</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 유선 연락 희망 시간대 -->
+                <div>
+                    <label class="text-xs font-bold text-slate-600 mb-1.5 block tracking-wider">상담 매니저 유선 연락 희망 시간대</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <label class="relative border border-gray-200 bg-white rounded-xl p-3 flex items-center justify-center gap-1.5 cursor-pointer">
+                            <input type="radio" name="contact_time" value="오전" required class="accent-[#c5a059] relative z-10">
+                            <span class="text-xs font-bold text-stone-700 relative z-10">☀️ 오전</span>
+                        </label>
+                        <label class="relative border border-gray-200 bg-white rounded-xl p-3 flex items-center justify-center gap-1.5 cursor-pointer">
+                            <input type="radio" name="contact_time" value="오후" checked class="accent-[#c5a059] relative z-10">
+                            <span class="text-xs font-bold text-stone-700 relative z-10">⛅ 오후</span>
+                        </label>
+                        <label class="relative border border-gray-200 bg-white rounded-xl p-3 flex items-center justify-center gap-1.5 cursor-pointer">
+                            <input type="radio" name="contact_time" value="저녁" class="accent-[#c5a059] relative z-10">
+                            <span class="text-xs font-bold text-stone-700 relative z-10">🌙 저녁</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 동반인 인원수 -->
+                <div>
+                    <label class="text-xs font-bold text-slate-600 mb-1 block tracking-wider">참가 희망 동반인 인원수</label>
+                    <select id="selectPeople" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm focus:border-[#c5a059] outline-none h-11">
+                        <option value="1">1명 (혼자 신청 및 참가)</option>
+                        <option value="2">2명 (부부, 파트너 동반 1인 포함)</option>
+                        <option value="3">3명 (지인 동반 단독 조 편성 희망)</option>
+                        <option value="4 이상">4명 이상 단체 신청</option>
+                    </select>
+                </div>
+
+                <!-- 현재 타수 상태 -->
+                <div>
+                    <label class="text-xs font-bold text-slate-600 mb-1 block tracking-wider">현재 타수 상태 및 희망하시는 개선 사항 (선택)</label>
+                    <textarea id="textMessage" rows="2" placeholder="예: 구력 3년 차 95타 수준입니다. 어프로치와 코스 공략 노하우를 상세히 배우고 싶습니다. (자유 일정을 선택하신 경우 희망 출발일을 함께 적어주시면 더 빠릅니다)" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm focus:border-[#c5a059] outline-none transition-all"></textarea>
+                </div>
+
+                <!-- 약관 동의 -->
+                <div class="pt-3 border-t border-stone-200">
+                    <label class="text-xs font-bold text-slate-500 mb-2 block tracking-wider">스승님 캠프 참가약관 및 동의사항 (v1.0)</label>
+                    <div class="space-y-2">
+                        <button type="button" onclick="openTermsModal()" class="w-full bg-[#f9f7f2] hover:bg-stone-100 border border-stone-200 text-[#1a3c5a] text-xs font-bold py-3 px-4 rounded-xl flex justify-between items-center transition-colors">
+                            <span>📄 [필수 확인] 참가약관 및 특별약관 전체 보기</span>
+                            <span id="termsStatusText" class="text-red-500 font-extrabold text-[11px]">미확인</span>
+                        </button>
+                        <div class="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-gray-200">
+                            <input type="checkbox" id="explicitTermsCheck" disabled class="w-4 h-4 mt-0.5 accent-[#1a3c5a] cursor-not-allowed">
+                            <label for="explicitTermsCheck" id="checkLabel" class="text-[11px] text-slate-400 font-medium leading-relaxed select-none">
+                                위 약관 전문 확인란을 열람하여 스크롤을 맨 아래까지 내려 완료해 주세요.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 제출 버튼 -->
+                <button type="submit" id="submitBtn" disabled class="w-full bg-stone-400 text-white text-sm sm:text-base font-black py-3.5 rounded-xl shadow-lg cursor-not-allowed transition-all tracking-wide h-12 flex items-center justify-center">
+                    위 약관 사항에 모두 동의해 주세요
+                </button>
+                <p class="text-center text-[10px] text-slate-400 font-medium">
+                    * 제출된 연락처는 사전 참가 예약 상담 및 안내 용도 외에 다른 용도로 절대 활용되지 않습니다.
+                </p>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="bg-white pt-8 pb-24 border-t border-slate-100 text-center px-4">
         <div class="container mx-auto max-w-4xl">
